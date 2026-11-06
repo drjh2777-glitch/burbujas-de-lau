@@ -1,0 +1,19 @@
+{
+  "name": "Burbujas de Lau · Jabones artesanales",
+  "short_name": "Burbujas de Lau",
+  "description": "Jabones artesanales hechos a mano en La Habana. Catálogo y pedidos por WhatsApp.",
+  "lang": "es",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#efeae0",
+  "theme_color": "#d85f3a",
+  "categories": ["shopping", "lifestyle"],
+  "icons": [
+    { "src": "img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Panel de administración · Burbujas de Lau</title>
+<meta name="theme-color" content="#0E0E14">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23D85F3A'/%3E%3Ccircle cx='12' cy='17' r='5' fill='none' stroke='%23F5F1E8' stroke-width='2'/%3E%3Ccircle cx='21' cy='12' r='3' fill='none' stroke='%23F5F1E8' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preload" as="font" type="font/woff2" href="fonts/inter-var.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/fugaz-one-400.woff2" crossorigin>
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url('fonts/inter-var.woff2') format('woff2')}
+@font-face{font-family:'Fugaz One';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/fugaz-one-400.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/jetbrains-mono-400.woff2') format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:500;font-display:swap;src:url('fonts/playfair-display-500-italic.woff2') format('woff2')}
+:root{
+  --cream:#efeae0;--cream-deep:#e5decf;--paper:#f5f1e8;--ink:#0a0a0a;--ink-mute:#5f5a51;--ink-soft:#8a8478;
+  --terra:#d85f3a;--terra-deep:#a8472a;--terra-bright:#ff8856;--olive:#7a8450;--gold:#c89b5e;--dark:#0e0e14;
+  --line:rgba(10,10,10,.14);--line-soft:rgba(10,10,10,.08);--danger:#b3261e;--ok:#3d7a35;
+  --fugaz:'Fugaz One',Impact,sans-serif;--editorial:'Playfair Display',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
+  --r:1rem;--shadow:0 24px 60px -24px rgba(10,10,10,.35);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;overflow-x:hidden;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;
+  background-image:radial-gradient(circle at 1px 1px,rgba(10,10,10,.045) 1px,transparent 0),linear-gradient(rgba(10,10,10,.02) 1px,transparent 0),linear-gradient(90deg,rgba(10,10,10,.02) 1px,transparent 0);
+  background-size:20px 20px,48px 48px,48px 48px;background-attachment:fixed;min-height:100vh}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+h1,h2,h3,h4{margin:0;line-height:1.05}
+p{margin:0}
+:focus-visible{outline:2px solid var(--terra);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.hide{display:none!important}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* login */
+.login{min-height:100vh;display:grid;place-items:center;padding:24px;background:var(--dark);position:relative;overflow:hidden}
+.login::before{content:"";position:absolute;top:-20%;left:-10%;width:520px;height:520px;border-radius:50%;background:rgba(216,95,58,.28);filter:blur(150px)}
+.login-card{position:relative;width:min(420px,100%);background:var(--paper);border-radius:20px;padding:2.25rem 1.75rem;box-shadow:0 40px 90px -30px rgba(0,0,0,.8)}
+.login-card .logo{display:flex;align-items:center;gap:.6rem;margin-bottom:1.5rem}
+.login-card .logo svg{width:36px;height:36px}
+.login-card .bn{display:block;font-family:var(--fugaz);font-size:19px;text-transform:uppercase;line-height:.95}
+.login-card .bs{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px}
+.login-card h1{font-family:var(--fugaz);font-size:1.65rem;text-transform:uppercase;margin-bottom:.4rem}
+.login-card p.sub{font-size:13.5px;color:var(--ink-mute);margin-bottom:1.5rem}
+.field{margin-bottom:1rem}
+.field label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.35rem}
+input[type=text],input[type=password],input[type=number],input[type=url],input[type=email],textarea,select{
+  width:100%;padding:.7rem .85rem;border:1px solid var(--line);border-radius:.6rem;background:#fff;font-family:var(--sans);font-size:14px;color:var(--ink)}
+input:focus,textarea:focus,select:focus{outline:2px solid rgba(216,95,58,.5);outline-offset:0;border-color:var(--terra)}
+textarea{resize:vertical;min-height:90px;line-height:1.55}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.35rem;border-radius:999px;
+  background:var(--terra);color:#fff;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;
+  border:1px solid var(--terra);text-decoration:none;box-shadow:0 12px 28px -12px rgba(216,95,58,.8);transition:all .15s}
+.btn:hover{background:var(--terra-deep);border-color:var(--terra-deep);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line);box-shadow:none}
+.btn.ghost:hover{background:var(--cream-deep);border-color:var(--line)}
+.btn.dark{background:var(--ink);border-color:var(--ink);box-shadow:none}
+.btn.dark:hover{background:#222}
+.btn.danger{background:transparent;color:var(--danger);border-color:rgba(179,38,30,.35);box-shadow:none}
+.btn.danger:hover{background:rgba(179,38,30,.08);border-color:var(--danger)}
+.btn.sm{padding:.5rem .9rem;font-size:.72rem}
+.btn.w{width:100%}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.err{color:var(--danger);font-size:12.5px;margin-top:.6rem;min-height:1.2em}
+.hint{font-size:11.5px;color:var(--ink-soft);margin-top:.3rem;line-height:1.5}
+
+/* shell */
+.top{background:var(--ink);color:var(--paper);position:sticky;top:0;z-index:40}
+.top-in{display:flex;align-items:center;gap:1rem;height:62px}
+.top .brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;margin-right:auto}
+.top .brand svg{width:30px;height:30px}
+.top .bn{display:block;font-family:var(--fugaz);font-size:16px;text-transform:uppercase;line-height:1}
+.top .bs{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:2px}
+.top .tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--terra-bright);border:1px solid rgba(255,136,86,.4);border-radius:999px;padding:.3rem .6rem}
+.top a.link{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.7);text-decoration:none;display:none}
+.top a.link:hover{color:#fff}
+@media(min-width:760px){.top a.link{display:inline}}
+
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:1.5rem;padding:1.5rem 0 4rem}
+@media(min-width:940px){.layout{grid-template-columns:210px minmax(0,1fr);gap:2rem;padding:2rem 0 5rem}}
+.side{position:sticky;top:82px;align-self:start;min-width:0}
+.panel{min-width:0}
+.side nav{display:flex;gap:.35rem;overflow-x:auto;padding-bottom:.5rem;min-width:0;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+@media(min-width:940px){.side nav{flex-direction:column;overflow:visible;padding:0;gap:.25rem}}
+.tab{display:flex;align-items:center;gap:.6rem;padding:.65rem .85rem;border-radius:.6rem;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);white-space:nowrap;border:1px solid transparent;text-align:left;width:100%}
+.tab svg{width:15px;height:15px;flex:none;opacity:.7}
+.tab:hover{background:rgba(245,241,232,.8);color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--paper);border-color:var(--line);color:var(--ink);box-shadow:0 4px 14px -8px rgba(0,0,0,.3)}
+.side .savebox{margin-top:1rem;padding:.9rem;background:var(--paper);border:1px solid var(--line-soft);border-radius:.75rem;display:none}
+@media(min-width:940px){.side .savebox{display:block}}
+.savebox p{font-family:var(--mono);font-size:10px;line-height:1.6;color:var(--ink-soft)}
+.savebox .state{display:flex;align-items:center;gap:.4rem;color:var(--ok);margin-bottom:.35rem}
+.savebox .state i{width:6px;height:6px;border-radius:50%;background:currentColor}
+
+.panel{min-width:0}
+.panel-head{margin-bottom:1.5rem}
+.panel-head h1{font-family:var(--fugaz);font-size:clamp(1.6rem,3.5vw,2.2rem);text-transform:uppercase;margin-top:.35rem}
+.panel-head p{font-size:13.5px;color:var(--ink-mute);margin-top:.4rem;max-width:60ch}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.24em;color:var(--terra-deep)}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--terra)}
+
+.card{background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r);padding:1.25rem}
+.card+.card{margin-top:1rem}
+.card h2{font-family:var(--fugaz);font-size:1.05rem;text-transform:uppercase;margin-bottom:.25rem}
+.card .sub{font-size:12.5px;color:var(--ink-mute);margin-bottom:1rem}
+
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;margin-bottom:1.25rem}
+@media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--paper);border:1px solid var(--line-soft);border-radius:.8rem;padding:.9rem 1rem}
+.stat .v{font-family:var(--fugaz);font-size:1.7rem;line-height:1;text-transform:uppercase}
+.stat .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:.3rem}
+.stat.accent .v{color:var(--terra)}
+
+.list-head{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin-bottom:1rem}
+.list-head h2{margin-right:auto}
+.search{position:relative;flex:1 1 160px;max-width:240px}
+.search input{padding-left:2rem;font-size:13px;border-radius:999px}
+.search svg{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);width:14px;height:14px;opacity:.4}
+
+.rows{display:grid;gap:.6rem}
+.row{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:.85rem;align-items:center;background:#fff;border:1px solid var(--line-soft);border-radius:.75rem;padding:.6rem;transition:border-color .15s,box-shadow .15s}
+.row:hover{border-color:var(--line);box-shadow:0 8px 20px -14px rgba(0,0,0,.35)}
+.row img{width:56px;height:56px;border-radius:.5rem;object-fit:cover;background:var(--cream-deep)}
+.row .nm{font-family:var(--fugaz);font-size:.95rem;text-transform:uppercase;line-height:1.1}
+.row .meta{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);margin-top:.25rem;display:flex;flex-wrap:wrap;gap:.35rem;align-items:center}
+.dot{width:6px;height:6px;border-radius:50%;display:inline-block}
+.dot.ok{background:var(--ok)}
+.dot.no{background:var(--terra)}
+.row .actions{display:flex;gap:.35rem;align-items:center}
+.ibtn{width:32px;height:32px;border-radius:.5rem;border:1px solid var(--line);display:grid;place-items:center;background:#fff;transition:all .15s}
+.ibtn:hover{background:var(--cream);border-color:var(--ink-soft)}
+.ibtn svg{width:14px;height:14px}
+.ibtn.danger:hover{background:rgba(179,38,30,.08);border-color:var(--danger);color:var(--danger)}
+
+/* editor */
+.editor{background:#fff;border:1px solid var(--line);border-radius:1rem;padding:1.25rem;margin-top:1rem}
+.editor-grid{display:grid;gap:1rem}
+@media(min-width:720px){.editor-grid{grid-template-columns:1fr 1fr}.editor-grid .full{grid-column:1/-1}}
+.img-drop{border:1.5px dashed var(--line);border-radius:.75rem;padding:1rem;text-align:center;background:var(--cream);transition:border-color .15s,background .15s;cursor:pointer}
+.img-drop:hover,.img-drop.over{border-color:var(--terra);background:rgba(216,95,58,.05)}
+.img-drop img{width:100%;max-height:300px;aspect-ratio:4/3;object-fit:cover;border-radius:.5rem;margin-bottom:.6rem;background:var(--cream-deep)}
+.img-drop .ph{aspect-ratio:4/3;display:grid;place-items:center;border-radius:.5rem;background:var(--cream-deep);margin-bottom:.6rem;color:var(--ink-soft)}
+.img-drop .ph svg{width:32px;height:32px;opacity:.4}
+.img-drop p{font-size:12px;color:var(--ink-mute)}
+.img-drop strong{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-deep);display:block;margin-bottom:.2rem}
+.img-tools{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
+.switch{display:flex;align-items:center;gap:.55rem;font-size:13px;color:var(--ink-mute);cursor:pointer;user-select:none}
+.switch input{position:absolute;opacity:0;width:0;height:0}
+.switch .track{width:36px;height:20px;border-radius:999px;background:var(--cream-deep);border:1px solid var(--line);position:relative;transition:background .15s;flex:none}
+.switch .track::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .15s}
+.switch input:checked+.track{background:var(--olive);border-color:var(--olive)}
+.switch input:checked+.track::after{transform:translateX(16px)}
+.editor-foot{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:flex-end;margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--line-soft)}
+
+/* publicar */
+.steps-pub{counter-reset:p;display:grid;gap:.85rem;margin-top:1rem}
+.step-pub{display:grid;grid-template-columns:auto 1fr;gap:.85rem;align-items:start}
+.step-pub .n{width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--mono);font-size:11px}
+.step-pub h3{font-family:var(--fugaz);font-size:.95rem;text-transform:uppercase;line-height:1.15}
+.step-pub p{font-size:13px;color:var(--ink-mute);margin-top:.2rem;line-height:1.55}
+.dl-grid{display:grid;gap:.6rem;margin-top:1rem}
+@media(min-width:640px){.dl-grid{grid-template-columns:1fr 1fr}}
+.code{background:var(--dark);color:#f7f1e4;border-radius:.75rem;padding:1rem;font-family:var(--mono);font-size:11.5px;line-height:1.6;overflow:auto;max-height:280px;white-space:pre}
+.banner{display:flex;gap:.75rem;padding:.9rem 1rem;border-radius:.7rem;font-size:13px;line-height:1.55;margin-bottom:1rem}
+.banner.warn{background:rgba(200,155,94,.16);border:1px solid rgba(200,155,94,.4);color:#6b4b1b}
+.banner.info{background:rgba(122,132,80,.12);border:1px solid rgba(122,132,80,.32);color:#3f4a25}
+.banner svg{width:18px;height:18px;flex:none;margin-top:.1rem}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:1.25rem;transform:translate(-50%,160%);background:var(--ink);color:var(--paper);padding:.7rem 1.1rem;border-radius:999px;font-family:var(--mono);font-size:12px;z-index:99;transition:transform .3s cubic-bezier(.2,.8,.3,1);box-shadow:0 16px 40px -14px rgba(0,0,0,.6);display:flex;align-items:center;gap:.5rem;max-width:92vw}
+.toast.show{transform:translate(-50%,0)}
+.toast .dot{width:7px;height:7px;border-radius:50%;background:var(--terra-bright);flex:none}
+
+/* modal confirm */
+.confirm{position:fixed;inset:0;background:rgba(10,10,10,.6);z-index:100;display:none;place-items:center;padding:1rem;backdrop-filter:blur(2px)}
+.confirm.open{display:grid}
+.confirm-box{background:var(--paper);border-radius:1rem;padding:1.5rem;max-width:400px;width:100%;box-shadow:0 40px 80px -30px rgba(0,0,0,.7)}
+.confirm-box h3{font-family:var(--fugaz);font-size:1.15rem;text-transform:uppercase}
+.confirm-box p{font-size:13.5px;color:var(--ink-mute);margin-top:.6rem}
+.confirm-box .acts{display:flex;gap:.5rem;justify-content:flex-end;margin-top:1.25rem}
+</style>
+</head>
+<body>
+
+<!-- ================= LOGIN ================= -->
+<div class="login" id="loginView">
+  <div class="login-card">
+    <div class="logo">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="16" cy="22" r="9" fill="none" stroke="#d85f3a" stroke-width="2.4"/><circle cx="26" cy="14" r="5.5" fill="none" stroke="#7a8450" stroke-width="2.4"/><circle cx="24" cy="29" r="3" fill="#d85f3a"/></svg>
+      <span><span class="bn">Burbujas de Lau</span><span class="bs">Panel de administración</span></span>
+    </div>
+    <h1>Entrar al panel</h1>
+    <p class="sub">Desde aquí actualizas precios, productos, descripciones e imágenes.</p>
+    <form id="loginForm" autocomplete="off">
+      <div class="field">
+        <label for="pass">Contraseña</label>
+        <input type="password" id="pass" placeholder="••••••••" required autofocus>
+      </div>
+      <button class="btn w" type="submit">Entrar</button>
+      <p class="err" id="loginErr"></p>
+    </form>
+    <p class="hint">Contraseña inicial: <strong>lau2025</strong>. Cámbiala en Ajustes apenas entres.</p>
+    <p class="hint" style="margin-top:.75rem"><a href="index.html" style="color:var(--terra-deep)">← Volver a la tienda</a></p>
+  </div>
+</div>
+
+<!-- ================= PANEL ================= -->
+<div id="appView" class="hide">
+  <header class="top">
+    <div class="wrap top-in">
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="16" cy="22" r="9" fill="none" stroke="#d85f3a" stroke-width="2.4"/><circle cx="26" cy="14" r="5.5" fill="none" stroke="#7a8450" stroke-width="2.4"/><circle cx="24" cy="29" r="3" fill="#d85f3a"/></svg>
+        <span><span class="bn">Burbujas de Lau</span><span class="bs">Panel de administración</span></span>
+      </a>
+      <span class="tag">Borrador local</span>
+      <a class="link" href="index.html" target="_blank" rel="noopener">Ver tienda ↗</a>
+      <button class="btn sm ghost" id="logoutBtn" style="color:#fff;border-color:rgba(255,255,255,.25)">Salir</button>
+    </div>
+  </header>
+
+  <div class="wrap layout">
+    <aside class="side">
+      <nav role="tablist" aria-label="Secciones del panel">
+        <button class="tab" role="tab" data-tab="productos" aria-selected="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h12l1 5H5z"/><path d="M5 7l1.5 13h11L19 7"/></svg> Productos
+        </button>
+        <button class="tab" role="tab" data-tab="ajustes" aria-selected="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-2.9 1.2 2 2 0 1 1-4 0 1.7 1.7 0 0 0-2.9-1.2l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.7 1.7 0 0 0 3 15a2 2 0 1 1 0-4 1.7 1.7 0 0 0 1.5-2.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.7 1.7 0 0 0 10 4a2 2 0 1 1 4 0 1.7 1.7 0 0 0 2.9 1.5l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1A1.7 1.7 0 0 0 21 11a2 2 0 1 1 0 4z"/></svg> Ajustes
+        </button>
+        <button class="tab" role="tab" data-tab="publicar" aria-selected="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg> Publicar
+        </button>
+        <button class="tab" role="tab" data-tab="ayuda" aria-selected="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"/><path d="M12 17h.01"/></svg> Ayuda
+        </button>
+      </nav>
+      <div class="savebox">
+        <p class="state" id="saveState"><i></i> Sin cambios pendientes</p>
+        <p id="saveInfo">Los cambios se guardan como borrador en este navegador. Para que los vea todo el mundo, publícalos desde la pestaña Publicar.</p>
+      </div>
+    </aside>
+
+    <main class="panel">
+
+      <!-- ============ PRODUCTOS ============ -->
+      <section id="tab-productos" role="tabpanel">
+        <div class="panel-head">
+          <p class="eyebrow">Catálogo</p>
+          <h1>Productos</h1>
+          <p>Añade, edita o despublica jabones. Los precios se muestran en <strong id="curLabel">CUP</strong> y el pedido se envía por WhatsApp.</p>
+        </div>
+
+        <div class="stats" id="stats"></div>
+
+        <div class="card">
+          <div class="list-head">
+            <h2>Todos los productos</h2>
+            <div class="search">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input type="search" id="prodSearch" placeholder="Buscar…" autocomplete="off">
+            </div>
+            <button class="btn sm" id="newProduct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" style="width:14px;height:14px"><path d="M12 5v14M5 12h14"/></svg> Nuevo</button>
+          </div>
+          <div class="rows" id="productRows"></div>
+        </div>
+
+        <!-- editor -->
+        <div class="editor hide" id="editor">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem">
+            <div>
+              <p class="eyebrow" id="editorEyebrow">Editando producto</p>
+              <h2 style="font-family:var(--fugaz);font-size:1.2rem;text-transform:uppercase;margin-top:.3rem" id="editorTitle">Producto</h2>
+            </div>
+            <button class="ibtn" id="closeEditor" aria-label="Cerrar editor">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+
+          <form id="productForm" autocomplete="off">
+            <input type="hidden" id="f-id">
+            <div class="editor-grid">
+              <div class="full">
+                <div class="img-drop" id="imgDrop" tabindex="0" role="button" aria-label="Subir imagen del producto">
+                  <div id="imgPreview"></div>
+                  <p><strong>Imagen del producto</strong>Arrastra una foto aquí, pégala o haz clic para elegir.<br>Se adapta sola a cualquier pantalla (4:3) y se comprime para que la web cargue rápido.</p>
+                  <div class="img-tools">
+                    <button class="btn sm ghost" type="button" id="pickImg">Elegir archivo</button>
+                    <button class="btn sm ghost" type="button" id="cropBtn">Recortar 4:3</button>
+                    <button class="btn sm danger" type="button" id="clearImg">Quitar</button>
+                  </div>
+                  <input type="file" id="fileInput" accept="image/*" class="hide">
+                </div>
+                <p class="hint">Formatos: JPG, PNG o WEBP. Se guardan optimizadas (máx. 1400 px) en WebP o JPG según el navegador.</p>
+              </div>
+
+              <div class="field">
+                <label for="f-name">Nombre del producto *</label>
+                <input type="text" id="f-name" required placeholder="Ej.: Lavanda y granos">
+              </div>
+              <div class="field">
+                <label for="f-cat">Categoría *</label>
+                <select id="f-cat" required></select>
+              </div>
+              <div class="field">
+                <label for="f-price">Precio (en la moneda de la tienda) *</label>
+                <input type="number" id="f-price" min="0" step="1" required placeholder="400">
+              </div>
+              <div class="field">
+                <label for="f-weight">Peso / tamaño</label>
+                <input type="text" id="f-weight" placeholder="115 g">
+              </div>
+              <div class="field full">
+                <label for="f-desc">Descripción *</label>
+                <textarea id="f-desc" required placeholder="Qué hace, cómo se siente, para quién es…"></textarea>
+              </div>
+              <div class="field full">
+                <label for="f-ing">Ingredientes (opcional)</label>
+                <textarea id="f-ing" placeholder="Aceite de oliva, manteca de karité, lavanda…"></textarea>
+              </div>
+              <div class="field full">
+                <label for="f-alt">Texto alternativo de la imagen (SEO)</label>
+                <input type="text" id="f-alt" placeholder="Jabón artesanal de lavanda con flores silvestres">
+                <p class="hint">Describe la foto en una frase. Ayuda a posicionar en Google y a las personas que usan lectores de pantalla.</p>
+              </div>
+              <div class="field">
+                <label>Disponibilidad</label>
+                <label class="switch"><input type="checkbox" id="f-avail" checked><span class="track"></span><span id="availLabel">Disponible para pedir</span></label>
+              </div>
+              <div class="field">
+                <label>Destacado</label>
+                <label class="switch"><input type="checkbox" id="f-featured"><span class="track"></span><span id="featLabel">Mostrar como favorito</span></label>
+              </div>
+            </div>
+            <div class="editor-foot">
+              <button class="btn ghost" type="button" id="cancelEdit">Cancelar</button>
+              <button class="btn" type="submit">Guardar producto</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- ============ AJUSTES ============ -->
+      <section id="tab-ajustes" role="tabpanel" class="hide">
+        <div class="panel-head">
+          <p class="eyebrow">Configuración</p>
+          <h1>Ajustes de la tienda</h1>
+          <p>Estos datos alimentan el botón de WhatsApp, los textos del pie y el SEO de la página.</p>
+        </div>
+
+        <div class="banner info">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg>
+          <div>El número de WhatsApp es el corazón de la tienda: todos los pedidos llegan ahí. Escríbelo con código de país, sin + ni espacios.</div>
+        </div>
+
+        <div class="card">
+          <h2>Contacto y pedidos</h2>
+          <p class="sub">Lo que ve el cliente al comprar.</p>
+          <div class="editor-grid">
+            <div class="field">
+              <label for="s-wa">WhatsApp (solo números) *</label>
+              <input type="text" id="s-wa" placeholder="5354015519" inputmode="numeric">
+              <p class="hint">Ejemplo Cuba: 5354015519. Se usa para abrir wa.me.</p>
+            </div>
+            <div class="field">
+              <label for="s-currency">Moneda</label>
+              <input type="text" id="s-currency" placeholder="CUP">
+            </div>
+            <div class="field">
+              <label for="s-location">Ubicación</label>
+              <input type="text" id="s-location" placeholder="La Habana, Cuba">
+            </div>
+            <div class="field">
+              <label for="s-hours">Horario</label>
+              <input type="text" id="s-hours" placeholder="Lun a Sáb · 9:00 a 18:00">
+            </div>
+            <div class="field">
+              <label for="s-email">Correo</label>
+              <input type="email" id="s-email" placeholder="hola@burbujasdelau.com">
+            </div>
+            <div class="field">
+            </div>
+            <div class="field full">
+              <label for="s-delivery">Aviso de envíos</label>
+              <textarea id="s-delivery"></textarea>
+            </div>
+            <div class="field full">
+              <label for="s-announce">Texto de la barra superior</label>
+              <input type="text" id="s-announce">
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Textos y SEO</h2>
+          <p class="sub">El título y la descripción son lo que aparece en Google y al compartir el enlace.</p>
+          <div class="editor-grid">
+            <div class="field full">
+              <label for="s-seoTitle">Título SEO <span id="seoTitleCount" class="mono" style="float:right;letter-spacing:0"></span></label>
+              <input type="text" id="s-seoTitle" maxlength="70">
+            </div>
+            <div class="field full">
+              <label for="s-seoDesc">Descripción SEO <span id="seoDescCount" class="mono" style="float:right;letter-spacing:0"></span></label>
+              <textarea id="s-seoDesc" maxlength="180"></textarea>
+            </div>
+            <div class="field full">
+              <label for="s-siteUrl">Dirección del sitio (para SEO)</label>
+              <input type="url" id="s-siteUrl" placeholder="https://burbujasdelau.com/">
+              <p class="hint">Cámbiala cuando tengas tu dominio real.</p>
+            </div>
+          </div>
+          <div class="editor-foot">
+            <button class="btn" id="saveSettings">Guardar ajustes</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Seguridad</h2>
+          <p class="sub">Cambia la contraseña de este panel. Se guarda cifrada en este navegador.</p>
+          <div class="editor-grid">
+            <div class="field">
+              <label for="s-pass1">Nueva contraseña</label>
+              <input type="password" id="s-pass1" placeholder="Mínimo 6 caracteres" autocomplete="new-password">
+            </div>
+            <div class="field">
+              <label for="s-pass2">Repetir contraseña</label>
+              <input type="password" id="s-pass2" placeholder="Repite la contraseña" autocomplete="new-password">
+            </div>
+          </div>
+          <div class="editor-foot">
+            <button class="btn ghost" id="savePass">Cambiar contraseña</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PUBLICAR ============ -->
+      <section id="tab-publicar" role="tabpanel" class="hide">
+        <div class="panel-head">
+          <p class="eyebrow">Poner online</p>
+          <h1>Publicar cambios</h1>
+          <p>Tu tienda es estática (sin servidor), así que los cambios se publican reemplazando un archivo. Son tres pasos y no necesitas saber programar.</p>
+        </div>
+
+        <div class="banner warn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="m10.3 3.9-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3.1l-8-14a2 2 0 0 0-3.4 0z"/></svg>
+          <div><strong>Importante:</strong> lo que editas aquí se guarda como borrador en este navegador (lo ves solo tú). Para que lo vean todos tus clientes, descarga <code>catalog.js</code> y súbelo a tu hosting reemplazando el anterior.</div>
+        </div>
+
+        <div class="card">
+          <h2>Los tres pasos</h2>
+          <div class="steps-pub">
+            <div class="step-pub"><span class="n">1</span><div><h3>Descarga el catálogo actualizado</h3><p>Genera el archivo <code>catalog.js</code> con todos tus productos y ajustes.</p></div></div>
+            <div class="step-pub"><span class="n">2</span><div><h3>Súbelo a tu hosting</h3><p>Entra al panel de tu hosting (Netlify, cPanel, GitHub Pages…) y reemplaza <code>catalog.js</code> por el nuevo. Si usas Netlify puedes arrastrar la carpeta completa.</p></div></div>
+            <div class="step-pub"><span class="n">3</span><div><h3>Abre la tienda y listo</h3><p>Recarga la web y verás los cambios. Si no aparecen, borra la caché del navegador o abre en una ventana privada.</p></div></div>
+          </div>
+          <div class="dl-grid">
+            <button class="btn" id="dlCatalog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg> Descargar catalog.js</button>
+            <button class="btn ghost" id="dlJson"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg> Descargar copia JSON</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Copia de seguridad</h2>
+          <p class="sub">Descarga una copia antes de hacer cambios grandes. También puedes restaurar desde un archivo.</p>
+          <div class="dl-grid">
+            <button class="btn ghost" id="exportBackup">Exportar copia completa</button>
+            <button class="btn ghost" id="importBtn">Importar copia…</button>
+          </div>
+          <input type="file" id="importInput" accept=".json,.js,application/json,text/javascript" class="hide">
+          <div class="editor-foot">
+            <button class="btn danger" id="resetBtn">Descartar borrador y volver a lo publicado</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Vista previa del archivo</h2>
+          <p class="sub">Así empieza el archivo que vas a subir.</p>
+          <pre class="code" id="codePreview">—</pre>
+        </div>
+      </section>
+
+      <!-- ============ AYUDA ============ -->
+      <section id="tab-ayuda" role="tabpanel" class="hide">
+        <div class="panel-head">
+          <p class="eyebrow">Sin complicaciones</p>
+          <h1>Ayuda rápida</h1>
+          <p>Todo lo que necesitas para mantener la tienda al día.</p>
+        </div>
+
+        <div class="card">
+          <h2>Cambiar un precio</h2>
+          <p class="sub">Productos → lápiz del producto → escribe el nuevo precio → Guardar producto → Publicar.</p>
+        </div>
+        <div class="card">
+          <h2>Cambiar una foto</h2>
+          <p class="sub">Abre el producto, arrastra la nueva imagen sobre el recuadro (o haz clic para elegirla). Se recorta y comprime automáticamente para que se vea bien en móvil, tablet y computadora. Guarda y publica.</p>
+        </div>
+        <div class="card">
+          <h2>Marcar algo como agotado</h2>
+          <p class="sub">Desactiva el interruptor «Disponible para pedir». El producto sigue visible pero no se puede añadir al carrito.</p>
+        </div>
+        <div class="card">
+          <h2>Cambiar el WhatsApp</h2>
+          <p class="sub">Ajustes → WhatsApp → escribe el número con código de país, sin + ni espacios (ej.: 5354015519) → Guardar ajustes → Publicar.</p>
+        </div>
+        <div class="card">
+          <h2>¿Dónde se guardan las imágenes?</h2>
+          <p class="sub">Dentro del propio <code>catalog.js</code>, comprimidas. Por eso al publicar no se rompe ninguna foto aunque cambies de hosting. Si tienes muchas fotos grandes, conviene subirlas a la carpeta <code>img/</code> y usar la ruta (ej.: <code>img/mi-jabon.jpg</code>).</p>
+        </div>
+        <div class="card">
+          <h2>Abrir el panel en otro dispositivo</h2>
+          <p class="sub">El acceso es <code>tudominio.com/admin.html</code>. La contraseña se guarda en cada navegador, así que cámbiala ahí también. No compartas el enlace del panel.</p>
+        </div>
+        <div class="card">
+          <h2>SEO: que te encuentren en Google</h2>
+          <p class="sub">La web ya incluye datos estructurados de producto, negocio local y preguntas frecuentes. Cuando tengas dominio propio: cambia la dirección en Ajustes, sube <code>sitemap.xml</code> y <code>robots.txt</code>, y da de alta el sitio en Google Search Console.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast" id="toast"><span class="dot"></span><span id="toastText"></span></div>
+
+<!-- confirm -->
+<div class="confirm" id="confirm">
+  <div class="confirm-box">
+    <h3 id="confirmTitle">¿Seguro?</h3>
+    <p id="confirmText"></p>
+    <div class="acts">
+      <button class="btn ghost sm" id="confirmNo">Cancelar</button>
+      <button class="btn sm" id="confirmYes">Sí, continuar</button>
+    </div>
+  </div>
+</div>
+
+<script src="catalog.js"></script>
+<script>
+(function () {
+  'use strict';
+  var LS_DRAFT = 'bdl_catalog_v3_draft';
+  var LS_PASS  = 'bdl_admin_pass_v1';
+  var LS_SESS  = 'bdl_admin_session_v1';
+  var DEFAULT_PASS_HASH = null;
+
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function uid() { return 'p' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5); }
+  function toast(msg) {
+    $('#toastText').textContent = msg;
+    $('#toast').classList.add('show');
+    clearTimeout(window._tt);
+    window._tt = setTimeout(function () { $('#toast').classList.remove('show'); }, 2600);
+  }
+  function clone(o) { return JSON.parse(JSON.stringify(o)); }
+
+  /* ---------- hashing de contraseña ---------- */
+  function hash(str) {
+    // SHA-256 si está disponible; si no, un hash simple (solo para el panel local)
+    if (window.crypto && crypto.subtle && crypto.subtle.digest) {
+      return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str)).then(function (buf) {
+        return Array.prototype.map.call(new Uint8Array(buf), function (b) {
+          return ('0' + b.toString(16)).slice(-2);
+        }).join('');
+      });
+    }
+    var h = 5381;
+    for (var i = 0; i < str.length; i++) h = ((h << 5) + h + str.charCodeAt(i)) | 0;
+    return Promise.resolve('w' + (h >>> 0).toString(16));
+  }
+
+  /* ---------- datos ---------- */
+  var BASE = clone(window.BDL_CATALOG || { settings: {}, categories: [], products: [], testimonials: [] });
+  var STATE = null;
+
+  function loadDraft() {
+    try {
+      var raw = localStorage.getItem(LS_DRAFT);
+      if (raw) {
+        var d = JSON.parse(raw);
+        if (d && d.products) return d;
+      }
+    } catch (e) {}
+    return null;
+  }
+  function saveDraft() {
+    STATE.updatedAt = new Date().toISOString();
+    try {
+      localStorage.setItem(LS_DRAFT, JSON.stringify(STATE));
+      setSaveState(true);
+    } catch (e) {
+      toast('No se pudo guardar: el borrador es demasiado grande');
+    }
+  }
+  function setSaveState(dirty) {
+    var el = $('#saveState');
+    if (!el) return;
+    el.innerHTML = dirty
+      ? '<i style="background:var(--gold)"></i> Borrador guardado'
+      : '<i></i> Sin cambios pendientes';
+    el.style.color = dirty ? '#8a6a2a' : 'var(--ok)';
+    var info = $('#saveInfo');
+    if (info) info.textContent = dirty
+      ? 'Guardado solo en este navegador. Entra en Publicar para que lo vea todo el mundo.'
+      : 'Los cambios se guardan como borrador en este navegador. Para que los vea todo el mundo, publícalos desde la pestaña Publicar.';
+  }
+
+  /* ---------- login ---------- */
+  function showApp() {
+    $('#loginView').classList.add('hide');
+    $('#appView').classList.remove('hide');
+    startApp();
+  }
+
+  $('#loginForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = $('#pass').value;
+    var err = $('#loginErr');
+    err.textContent = '';
+    var stored = localStorage.getItem(LS_PASS);
+    (stored ? Promise.resolve(stored) : hash('lau2025')).then(function (target) {
+      return hash(v).then(function (h) {
+        if (h === target) {
+          sessionStorage.setItem(LS_SESS, '1');
+          if (!stored) localStorage.setItem(LS_PASS, h);
+          showApp();
+        } else {
+          err.textContent = 'Contraseña incorrecta. Inténtalo otra vez.';
+          $('#pass').select();
+        }
+      });
+    });
+  });
+
+  $('#logoutBtn').addEventListener('click', function () {
+    sessionStorage.removeItem(LS_SESS);
+    location.reload();
+  });
+
+  /* ---------- pestañas ---------- */
+  function goTab(name) {
+    $$('.tab').forEach(function (t) {
+      t.setAttribute('aria-selected', String(t.dataset.tab === name));
+    });
+    ['productos', 'ajustes', 'publicar', 'ayuda'].forEach(function (n) {
+      $('#tab-' + n).classList.toggle('hide', n !== name);
+    });
+    if (name === 'publicar') renderPublish();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  $$('.tab').forEach(function (t) {
+    t.addEventListener('click', function () { goTab(t.dataset.tab); });
+  });
+
+  /* ---------- estado guardado / init ---------- */
+  function startApp() {
+    STATE = loadDraft() || clone(BASE);
+    if (!STATE.categories || !STATE.categories.length) STATE.categories = clone(BASE.categories || []);
+    // asegurar campos
+    STATE.products = (STATE.products || []).map(function (p) {
+      return Object.assign({ id: uid(), name: '', category: 'suave', price: 0, weight: '', avail: true, featured: false, img: '', alt: '', desc: '', ingredients: '' }, p);
+    });
+    setSaveState(!!loadDraft());
+    renderStats();
+    renderRows();
+    fillCategorySelect();
+    fillSettings();
+    $('#curLabel').textContent = (STATE.settings || {}).currency || 'CUP';
+    renderPublish();
+  }
+
+  /* ---------- stats ---------- */
+  function renderStats() {
+    var ps = STATE.products || [];
+    var avail = ps.filter(function (p) { return p.avail !== false; }).length;
+    var prices = ps.map(function (p) { return Number(p.price) || 0; }).filter(function (n) { return n > 0; });
+    var avg = prices.length ? Math.round(prices.reduce(function (a, b) { return a + b; }, 0) / prices.length) : 0;
+    var cur = (STATE.settings || {}).currency || 'CUP';
+    $('#stats').innerHTML =
+      '<div class="stat"><div class="v">' + ps.length + '</div><div class="k">Productos</div></div>' +
+      '<div class="stat"><div class="v" style="color:var(--ok)">' + avail + '</div><div class="k">Disponibles</div></div>' +
+      '<div class="stat"><div class="v" style="color:var(--terra)">' + (ps.length - avail) + '</div><div class="k">Agotados</div></div>' +
+      '<div class="stat accent"><div class="v">' + avg + ' <span style="font-size:.55em">' + esc(cur) + '</span></div><div class="k">Precio medio</div></div>';
+  }
+
+  /* ---------- filas ---------- */
+  var searchTerm = '';
+  function imgSrc(p) { return p.img || ''; }
+  function renderRows() {
+    var box = $('#productRows');
+    var list = (STATE.products || []).filter(function (p) {
+      if (!searchTerm) return true;
+      return (p.name + ' ' + p.category + ' ' + p.desc).toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+    });
+    if (!list.length) {
+      box.innerHTML = '<p style="padding:1.5rem;text-align:center;color:var(--ink-soft);font-size:13.5px">No hay productos que coincidan. Crea uno nuevo con el botón «Nuevo».</p>';
+      return;
+    }
+    box.innerHTML = list.map(function (p) {
+      var thumb = p.img
+        ? '<img src="' + esc(p.img) + '" alt="">'
+        : '<div style="width:64px;height:64px;border-radius:.5rem;background:var(--cream-deep);display:grid;place-items:center;color:var(--ink-soft);font-family:var(--fugaz);font-size:18px">' + esc(String(p.name || '?').charAt(0)) + '</div>';
+      return '<div class="row">' + thumb +
+        '<div><p class="nm">' + esc(p.name || 'Sin nombre') + '</p>' +
+          '<p class="meta"><span class="dot ' + (p.avail === false ? 'no' : 'ok') + '"></span>' + (p.avail === false ? 'Agotado' : 'Disponible') +
+          ' · ' + esc(catName(p.category)) + ' · ' + esc(p.weight || '—') + ' · <strong style="color:var(--ink)">' + money(p.price) + '</strong>' +
+          (p.featured ? ' · ★' : '') + '</p></div>' +
+        '<div class="actions">' +
+          '<button class="ibtn" data-edit="' + esc(p.id) + '" aria-label="Editar ' + esc(p.name) + '" title="Editar">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>' +
+          '<button class="ibtn" data-dup="' + esc(p.id) + '" aria-label="Duplicar" title="Duplicar">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg></button>' +
+          '<button class="ibtn danger" data-del="' + esc(p.id) + '" aria-label="Eliminar" title="Eliminar">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="m6 6 1 14h10l1-14"/></svg></button>' +
+        '</div></div>';
+    }).join('');
+  }
+  function catName(id) {
+    var c = (STATE.categories || []).filter(function (x) { return x.id === id; })[0];
+    return c ? c.name : (id || '—');
+  }
+  function money(n) {
+    var cur = (STATE.settings || {}).currency || 'CUP';
+    return (Number(n) || 0).toLocaleString('es-CU') + ' ' + cur;
+  }
+
+  function fillCategorySelect() {
+    var sel = $('#f-cat');
+    sel.innerHTML = (STATE.categories || []).map(function (c) {
+      return '<option value="' + esc(c.id) + '">' + esc(c.name) + '</option>';
+    }).join('');
+  }
+
+  /* ---------- editor ---------- */
+  var currentImg = '';
+  var editingId = null;
+
+  function openEditor(id) {
+    editingId = id || null;
+    var p = id ? (STATE.products || []).filter(function (x) { return x.id === id; })[0] : null;
+    p = p || { name: '', category: (STATE.categories[0] || {}).id || 'suave', price: '', weight: '', avail: true, featured: false, img: '', alt: '', desc: '', ingredients: '' };
+    $('#editorEyebrow').textContent = id ? 'Editando producto' : 'Nuevo producto';
+    $('#editorTitle').textContent = id ? (p.name || 'Producto') : 'Nuevo producto';
+    $('#f-id').value = id || '';
+    $('#f-name').value = p.name || '';
+    $('#f-cat').value = p.category || (STATE.categories[0] || {}).id;
+    $('#f-price').value = p.price || '';
+    $('#f-weight').value = p.weight || '';
+    $('#f-desc').value = p.desc || '';
+    $('#f-ing').value = p.ingredients || '';
+    $('#f-alt').value = p.alt || '';
+    $('#f-avail').checked = p.avail !== false;
+    $('#f-featured').checked = !!p.featured;
+    currentImg = p.img || '';
+    paintImg();
+    updateToggles();
+    $('#editor').classList.remove('hide');
+    $('#editor').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    $('#f-name').focus();
+  }
+  function closeEditor() {
+    $('#editor').classList.add('hide');
+    editingId = null;
+  }
+  function paintImg() {
+    var box = $('#imgPreview');
+    if (currentImg) {
+      box.innerHTML = '<img src="' + esc(currentImg) + '" alt="Vista previa">';
+    } else {
+      box.innerHTML = '<div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>';
+    }
+  }
+  function updateToggles() {
+    $('#availLabel').textContent = $('#f-avail').checked ? 'Disponible para pedir' : 'Mostrar como agotado';
+    $('#featLabel').textContent = $('#f-featured').checked ? 'Aparece como favorito' : 'Mostrar como favorito';
+  }
+  $('#f-avail').addEventListener('change', updateToggles);
+  $('#f-featured').addEventListener('change', updateToggles);
+
+  $('#newProduct').addEventListener('click', function () { openEditor(null); });
+  $('#closeEditor').addEventListener('click', closeEditor);
+  $('#cancelEdit').addEventListener('click', closeEditor);
+
+  /* ---------- imágenes: compresión y recorte ---------- */
+  function readFile(file) {
+    if (!file || !/^image\//.test(file.type)) { toast('Ese archivo no es una imagen'); return; }
+    var reader = new FileReader();
+    reader.onload = function () { processImage(reader.result, true); };
+    reader.readAsDataURL(file);
+  }
+
+  function processImage(dataUrl, crop) {
+    var img = new Image();
+    img.onload = function () {
+      var MAX = 1400;
+      var w = img.width, h = img.height;
+      var canvas = document.createElement('canvas');
+      var ctx = canvas.getContext('2d');
+      ctx.imageSmoothingQuality = 'high';
+
+      if (crop) {
+        // recorte centrado a 4:3 y luego escalado
+        var targetRatio = 4 / 3;
+        var sw = w, sh = h, sx = 0, sy = 0;
+        if (w / h > targetRatio) { sw = h * targetRatio; sx = (w - sw) / 2; }
+        else { sh = w / targetRatio; sy = (h - sh) / 2; }
+        var outW = Math.min(MAX, Math.round(sw));
+        var outH = Math.round(outW / targetRatio);
+        canvas.width = outW; canvas.height = outH;
+        ctx.drawImage(img, sx, sy, sw, sh, 0, 0, outW, outH);
+      } else {
+        if (w > MAX) { h = Math.round(h * MAX / w); w = MAX; }
+        if (h > MAX) { w = Math.round(w * MAX / h); h = MAX; }
+        canvas.width = w; canvas.height = h;
+        ctx.drawImage(img, 0, 0, w, h);
+      }
+
+      var out;
+      try { out = canvas.toDataURL('image/webp', 0.82); } catch (e) { out = ''; }
+      if (!out || out.indexOf('data:image/webp') !== 0) {
+        out = canvas.toDataURL('image/jpeg', 0.84);
+      }
+      var kb = Math.round(out.length * 0.75 / 1024);
+      currentImg = out;
+      paintImg();
+      toast('Imagen lista · ' + canvas.width + '×' + canvas.height + ' px · ~' + kb + ' KB');
+    };
+    img.onerror = function () { toast('No se pudo leer la imagen'); };
+    img.src = dataUrl;
+  }
+
+  $('#pickImg').addEventListener('click', function (e) { e.stopPropagation(); $('#fileInput').click(); });
+  $('#imgDrop').addEventListener('click', function () { $('#fileInput').click(); });
+  $('#imgDrop').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); $('#fileInput').click(); }
+  });
+  $('#fileInput').addEventListener('change', function (e) {
+    if (e.target.files && e.target.files[0]) readFile(e.target.files[0]);
+    e.target.value = '';
+  });
+  ['dragenter', 'dragover'].forEach(function (ev) {
+    $('#imgDrop').addEventListener(ev, function (e) { e.preventDefault(); $('#imgDrop').classList.add('over'); });
+  });
+  ['dragleave', 'drop'].forEach(function (ev) {
+    $('#imgDrop').addEventListener(ev, function (e) { e.preventDefault(); $('#imgDrop').classList.remove('over'); });
+  });
+  $('#imgDrop').addEventListener('drop', function (e) {
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) readFile(e.dataTransfer.files[0]);
+  });
+  document.addEventListener('paste', function (e) {
+    if ($('#editor').classList.contains('hide')) return;
+    var items = (e.clipboardData || {}).items || [];
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].type.indexOf('image') === 0) {
+        readFile(items[i].getAsFile());
+        e.preventDefault();
+        return;
+      }
+    }
+  });
+  $('#cropBtn').addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (!currentImg) { toast('Primero elige una imagen'); return; }
+    processImage(currentImg, true);
+  });
+  $('#clearImg').addEventListener('click', function (e) {
+    e.stopPropagation();
+    currentImg = '';
+    paintImg();
+  });
+
+  /* ---------- guardar producto ---------- */
+  $('#productForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = {
+      id: $('#f-id').value || uid(),
+      name: $('#f-name').value.trim(),
+      category: $('#f-cat').value,
+      price: Number($('#f-price').value) || 0,
+      weight: $('#f-weight').value.trim(),
+      desc: $('#f-desc').value.trim(),
+      ingredients: $('#f-ing').value.trim(),
+      alt: $('#f-alt').value.trim(),
+      avail: $('#f-avail').checked,
+      featured: $('#f-featured').checked,
+      img: currentImg
+    };
+    if (!data.name || !data.desc || data.price <= 0) {
+      toast('Completa nombre, descripción y un precio mayor que 0');
+      return;
+    }
+    if (!data.alt) data.alt = 'Jabón artesanal ' + data.name + ' de Burbujas de Lau';
+    var idx = (STATE.products || []).findIndex(function (p) { return p.id === data.id; });
+    if (idx >= 0) STATE.products[idx] = data;
+    else STATE.products.push(data);
+    saveDraft();
+    renderStats();
+    renderRows();
+    renderPublish();
+    closeEditor();
+    toast(idx >= 0 ? 'Producto actualizado' : 'Producto creado');
+  });
+
+  /* ---------- acciones de fila ---------- */
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-edit],[data-del],[data-dup]');
+    if (!t) return;
+    if (t.hasAttribute('data-edit')) { openEditor(t.getAttribute('data-edit')); return; }
+    if (t.hasAttribute('data-dup')) {
+      var src = STATE.products.filter(function (p) { return p.id === t.getAttribute('data-dup'); })[0];
+      if (!src) return;
+      var copy = clone(src);
+      copy.id = uid();
+      copy.name = src.name + ' (copia)';
+      copy.featured = false;
+      STATE.products.push(copy);
+      saveDraft(); renderStats(); renderRows(); renderPublish();
+      toast('Producto duplicado');
+      return;
+    }
+    if (t.hasAttribute('data-del')) {
+      var id = t.getAttribute('data-del');
+      var p = STATE.products.filter(function (x) { return x.id === id; })[0];
+      confirmDialog('Eliminar producto', '¿Eliminar «' + (p ? p.name : '') + '»? Esta acción no se puede deshacer en el borrador.', function () {
+        STATE.products = STATE.products.filter(function (x) { return x.id !== id; });
+        saveDraft(); renderStats(); renderRows(); renderPublish();
+        toast('Producto eliminado');
+      });
+    }
+  });
+
+  $('#prodSearch').addEventListener('input', function (e) {
+    searchTerm = e.target.value;
+    renderRows();
+  });
+
+  /* ---------- confirm genérico ---------- */
+  var confirmCb = null;
+  function confirmDialog(title, text, cb) {
+    $('#confirmTitle').textContent = title;
+    $('#confirmText').textContent = text;
+    confirmCb = cb;
+    $('#confirm').classList.add('open');
+  }
+  $('#confirmNo').addEventListener('click', function () { $('#confirm').classList.remove('open'); confirmCb = null; });
+  $('#confirmYes').addEventListener('click', function () {
+    var cb = confirmCb;
+    $('#confirm').classList.remove('open');
+    confirmCb = null;
+    if (cb) cb();
+  });
+  $('#confirm').addEventListener('click', function (e) {
+    if (e.target === $('#confirm')) { $('#confirm').classList.remove('open'); confirmCb = null; }
+  });
+
+  /* ---------- ajustes ---------- */
+  function fillSettings() {
+    var s = STATE.settings || {};
+    var map = {
+      's-wa': 'whatsapp', 's-currency': 'currency', 's-location': 'location',
+      's-hours': 'hours', 's-email': 'email',
+      's-delivery': 'deliveryNotice', 's-announce': 'announcement',
+      's-seoTitle': 'seoTitle', 's-seoDesc': 'seoDescription', 's-siteUrl': 'siteUrl'
+    };
+    Object.keys(map).forEach(function (id) {
+      var el = $('#' + id);
+      if (el) el.value = s[map[id]] || '';
+    });
+    countSeo();
+  }
+  function countSeo() {
+    var t = $('#s-seoTitle'), d = $('#s-seoDesc');
+    if (t) $('#seoTitleCount').textContent = t.value.length + '/70';
+    if (d) $('#seoDescCount').textContent = d.value.length + '/180';
+  }
+  ['s-seoTitle', 's-seoDesc'].forEach(function (id) {
+    var el = $('#' + id);
+    if (el) el.addEventListener('input', countSeo);
+  });
+
+  $('#saveSettings').addEventListener('click', function () {
+    var s = STATE.settings || (STATE.settings = {});
+    s.whatsapp = ($('#s-wa').value || '').replace(/[^0-9]/g, '');
+    s.currency = $('#s-currency').value.trim() || 'CUP';
+    s.location = $('#s-location').value.trim();
+    s.hours = $('#s-hours').value.trim();
+    s.email = $('#s-email').value.trim();
+    s.deliveryNotice = $('#s-delivery').value.trim();
+    s.announcement = $('#s-announce').value.trim();
+    s.seoTitle = $('#s-seoTitle').value.trim();
+    s.seoDescription = $('#s-seoDesc').value.trim();
+    s.siteUrl = $('#s-siteUrl').value.trim();
+    if (!s.whatsapp) { toast('El WhatsApp no puede quedar vacío'); return; }
+    saveDraft(); renderStats(); renderRows(); renderPublish();
+    $('#curLabel').textContent = s.currency || 'CUP';
+    toast('Ajustes guardados');
+  });
+
+  $('#savePass').addEventListener('click', function () {
+    var a = $('#s-pass1').value, b = $('#s-pass2').value;
+    if (a.length < 6) { toast('Usa al menos 6 caracteres'); return; }
+    if (a !== b) { toast('Las contraseñas no coinciden'); return; }
+    hash(a).then(function (h) {
+      localStorage.setItem(LS_PASS, h);
+      $('#s-pass1').value = ''; $('#s-pass2').value = '';
+      toast('Contraseña actualizada');
+    });
+  });
+
+  /* ---------- publicar / exportar ---------- */
+  function buildCatalogJs() {
+    var data = clone(STATE);
+    data.version = (Number(data.version) || 0) + 1;
+    data.updatedAt = new Date().toISOString();
+    return '/* ============================================================\n' +
+      '   Burbujas de Lau · Catálogo\n' +
+      '   Generado desde el panel el ' + new Date().toLocaleString('es-CU') + '\n' +
+      '   Sube este archivo a tu hosting reemplazando el anterior.\n' +
+      '   ============================================================ */\n' +
+      'window.BDL_CATALOG = ' + JSON.stringify(data, null, 2) + ';\n';
+  }
+  function download(name, text, type) {
+    var blob = new Blob([text], { type: type || 'text/plain;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = name;
+    document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 500);
+  }
+  function renderPublish() {
+    var pre = $('#codePreview');
+    if (!pre) return;
+    var text = buildCatalogJs();
+    pre.textContent = text.length > 1600 ? text.slice(0, 1600) + '\n\n…' : text;
+  }
+  $('#dlCatalog').addEventListener('click', function () {
+    download('catalog.js', buildCatalogJs(), 'text/javascript;charset=utf-8');
+    toast('catalog.js descargado · súbelo a tu hosting');
+  });
+  $('#dlJson').addEventListener('click', function () {
+    download('catalogo-burbujas-de-lau.json', JSON.stringify(STATE, null, 2), 'application/json');
+    toast('Copia JSON descargada');
+  });
+  $('#exportBackup').addEventListener('click', function () {
+    download('copia-burbujas-' + new Date().toISOString().slice(0, 10) + '.json', JSON.stringify(STATE, null, 2), 'application/json');
+    toast('Copia de seguridad descargada');
+  });
+  $('#importBtn').addEventListener('click', function () { $('#importInput').click(); });
+  $('#importInput').addEventListener('change', function (e) {
+    var f = e.target.files && e.target.files[0];
+    if (!f) return;
+    var r = new FileReader();
+    r.onload = function () {
+      var txt = String(r.result);
+      try {
+        var json;
+        if (/^\s*\{/.test(txt)) json = JSON.parse(txt);
+        else {
+          var m = txt.match(/window\.BDL_CATALOG\s*=\s*([\s\S]*);?\s*$/);
+          if (!m) throw new Error('formato');
+          json = JSON.parse(m[1].replace(/;\s*$/, ''));
+        }
+        if (!json || !json.products) throw new Error('sin productos');
+        confirmDialog('Importar copia', 'Se reemplazará el borrador actual con el archivo «' + f.name + '». ¿Continuar?', function () {
+          STATE = json;
+          saveDraft();
+          startApp();
+          toast('Copia importada');
+        });
+      } catch (err) {
+        toast('Ese archivo no es una copia válida');
+      }
+    };
+    r.readAsText(f);
+    e.target.value = '';
+  });
+  $('#resetBtn').addEventListener('click', function () {
+    confirmDialog('Descartar borrador', 'Se borrarán los cambios locales y volverás al catálogo publicado en catalog.js. ¿Continuar?', function () {
+      localStorage.removeItem(LS_DRAFT);
+      STATE = clone(BASE);
+      startApp();
+      setSaveState(false);
+      toast('Borrador descartado');
+    });
+  });
+
+  /* ---------- arranque ---------- */
+  if (sessionStorage.getItem(LS_SESS) === '1') showApp();
+})();
+</script>
+</body>
+</html>
