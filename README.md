@@ -2,7 +2,7 @@
 
 Web de jabonería artesanal (La Habana) con catálogo, carrito y pedidos por WhatsApp, más un panel privado para actualizar precios, productos e imágenes.
 
-**WhatsApp de pedidos:** +53 5401 5519
+**WhatsApp de pedidos:** +53 59964943
 **Dirección pública actual:** https://drjh2777-glitch.github.io/burbujas-de-lau/
 **Dominio propio (pendiente de registrar):** burbujasdelau.com
 
