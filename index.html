@@ -52,7 +52,6 @@
   "url": "https://drjh2777-glitch.github.io/burbujas-de-lau/",
   "image": "https://drjh2777-glitch.github.io/burbujas-de-lau/img/hero.jpg",
   "telephone": "+5354015519",
-  "priceRange": "400 CUP",
   "currenciesAccepted": "CUP",
   "paymentAccepted": "Efectivo, Transferencia",
   "address": { "@type": "PostalAddress", "addressLocality": "La Habana", "addressCountry": "CU" },
@@ -96,7 +95,7 @@
       "name": "¿Cuánto cuestan los jabones?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Las barras cuestan 400 CUP. El precio puede variar según el tamaño y los ingredientes; el catálogo siempre muestra el precio actualizado."
+        "text": "Cada barra tiene su precio según el tamaño y los ingredientes, y se ajusta cuando cambia el costo de las materias primas. En el catálogo ves siempre el precio del día, producto por producto: no manejamos un precio fijo «de portada»."
       }
     },
     {
@@ -303,32 +302,7 @@ ul{margin:0;padding:0;list-style:none}
 .pill{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);color:rgba(255,255,255,.72);border-radius:999px;padding:.4rem .85rem;font-family:var(--mono);font-size:11px;backdrop-filter:blur(4px)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.9rem}
 .hero-note{margin-top:.9rem;font-family:var(--mono);font-size:11.5px;color:rgba(255,255,255,.5)}
-.hero-side{display:grid;gap:1rem}
-.mock{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.14);background:#0E0E14;box-shadow:0 30px 70px -30px rgba(0,0,0,.85);min-width:0}
-.mock-caption{margin-bottom:.7rem}
-.mock-caption .eyebrow{font-size:10px;letter-spacing:.24em}
-.mock-caption .title{margin-top:.35rem;font-family:var(--fugaz);font-size:clamp(17px,2vw,22px);text-transform:uppercase;letter-spacing:-.01em;color:#fff;line-height:1.05}
-.mock-bar{display:flex;align-items:center;gap:.45rem;border-bottom:1px solid rgba(255,255,255,.1);padding:.7rem .9rem;background:rgba(255,255,255,.03)}
-.mock-bar i{width:9px;height:9px;border-radius:50%;display:block}
-.mock-bar .a{background:var(--terra-bright)}
-.mock-bar .b{background:rgba(255,255,255,.25)}
-.mock-bar .c{background:#a5e075}
-.mock-bar span{margin-left:.4rem;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.42)}
-.chat{padding:1rem .9rem;display:grid;gap:.55rem;font-family:var(--mono);font-size:12px;line-height:1.55}
-.bubble{max-width:88%;padding:.55rem .75rem;border-radius:.85rem;border-bottom-left-radius:.25rem;background:rgba(255,255,255,.07);color:#F7F1E4}
-.bubble.me{justify-self:end;border-bottom-left-radius:.85rem;border-bottom-right-radius:.25rem;background:var(--terra);color:#fff}
-.bubble .who{display:block;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin-bottom:.15rem}
-.chat-foot{display:flex;flex-wrap:wrap;gap:.4rem .75rem;align-items:center;border-top:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);padding:.65rem .9rem;font-family:var(--mono);font-size:10.5px;color:rgba(255,255,255,.5)}
-.chat-foot .ok{color:#a5e075}
-.price-card{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:var(--paper);color:var(--ink);border-radius:var(--r);padding:1.1rem 1.25rem;text-decoration:none;box-shadow:0 20px 50px -20px rgba(0,0,0,.7);transition:transform .15s,box-shadow .15s}
-.price-card:hover{transform:translateY(-2px);box-shadow:0 26px 60px -20px rgba(0,0,0,.8)}
-.price-card .big{font-family:var(--fugaz);font-size:clamp(30px,4vw,38px);line-height:1;text-transform:uppercase;letter-spacing:-.02em}
-.price-card .sub{margin-top:.25rem;font-family:var(--editorial);font-style:italic;font-size:13px;color:var(--terra-deep)}
-.price-card .txt{max-width:19ch;font-size:12.5px;line-height:1.45;color:var(--ink-mute);text-align:right}
-.price-card .rot{width:38px;height:38px;flex:none;border-radius:50%;background:var(--terra);color:#fff;display:grid;place-items:center}
-.price-card .rot svg{width:16px;height:16px}
-.price-card .right{display:flex;align-items:center;gap:.75rem}
-@media(min-width:900px){.hero-in{grid-template-columns:1.06fr .94fr;gap:3.5rem}}
+@media(min-width:900px){.hero-in{min-height:clamp(30rem,64vh,42rem)}}
 
 /* ---------- marquee ingredientes ---------- */
 .strip{border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:rgba(245,241,232,.6);overflow:hidden;padding:1rem 0}
@@ -458,10 +432,6 @@ select.sort{padding:.55rem 2rem .55rem .9rem;border-radius:999px;border:1px soli
 .buy-steps h3{font-family:var(--fugaz);font-size:1.15rem;text-transform:uppercase;color:#fff;line-height:1.1}
 .buy-steps p{margin-top:.35rem;font-size:13.5px;line-height:1.6;color:rgba(247,241,228,.6)}
 .buy-card{background:var(--paper);color:var(--ink);border-radius:1.25rem;padding:1.5rem;box-shadow:0 30px 70px -30px rgba(0,0,0,.9)}
-.buy-card .price-row{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;border-bottom:1px dashed var(--line);padding-bottom:1rem}
-.buy-card .price{font-family:var(--fugaz);font-size:clamp(2.6rem,6vw,3.4rem);line-height:.9;text-transform:uppercase;letter-spacing:-.02em}
-.buy-card .price small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--ink-soft);margin-top:.45rem;text-transform:uppercase;font-weight:400}
-.buy-card .price-note{font-family:var(--editorial);font-style:italic;font-size:12.5px;color:var(--terra-deep);text-align:right;max-width:15ch;line-height:1.4}
 .buy-card ul{margin:1rem 0;display:grid;gap:.55rem}
 .buy-card li{display:flex;gap:.6rem;font-size:13.5px;line-height:1.5;color:var(--ink-mute)}
 .buy-card li svg{width:15px;height:15px;flex:none;margin-top:.2rem;color:var(--olive)}
@@ -640,7 +610,7 @@ footer.site .f-about{margin-top:1rem;max-width:34ch;line-height:1.6;color:rgba(2
       <p class="eyebrow on-dark" style="display:inline-flex">
         <span>Jabonería artesanal · La Habana</span>
       </p>
-      <h1 class="display" id="hero-title">Jabones<br>hechos a mano<br><span class="accent">para tu piel</span></h1>
+      <h1 class="display" id="hero-title">Jabones<br>hechos a la medida<br><span class="accent">para nutrir tu piel</span></h1>
       <p class="hero-sub">Barras de aceites naturales, arcillas y plantas, en lotes pequeños. <strong>Sin detergentes agresivos ni promesas raras.</strong> Solo lo que tu piel necesita.</p>
       <ul class="pills">
         <li class="pill">Sin detergentes</li>
@@ -649,7 +619,7 @@ footer.site .f-about{margin-top:1rem;max-width:34ch;line-height:1.6;color:rgba(2
         <li class="pill">Pago por WhatsApp</li>
       </ul>
       <div class="hero-cta">
-        <a class="btn" href="#catalogo">Ver el catálogo <span class="tag">desde 400 CUP</span>
+        <a class="btn" href="#catalogo">Ver el catálogo
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
         <a class="btn on-dark ghost" href="https://wa.me/5354015519?text=Hola%20Burbujas%20de%20Lau%20%F0%9F%91%8B%20quiero%20pedir%20jabones" target="_blank" rel="noopener">
@@ -660,38 +630,6 @@ footer.site .f-about{margin-top:1rem;max-width:34ch;line-height:1.6;color:rgba(2
       <p class="hero-note">Coordinamos entrega y pago por WhatsApp · Respondemos en el día</p>
     </div>
 
-    <div class="hero-side">
-      <figure style="margin:0">
-        <figcaption class="mock-caption">
-          <p class="eyebrow on-dark" style="font-size:10px">Así de simple es pedir</p>
-          <p class="title">Tu pedido, sin formularios</p>
-        </figcaption>
-        <div class="mock">
-          <div class="mock-bar">
-            <i class="a"></i><i class="b"></i><i class="c"></i>
-            <span>WhatsApp · +53 5401 5519</span>
-          </div>
-          <div class="chat" aria-hidden="true">
-            <p class="bubble">Hola 👋 ¿Tienen el de sábila?</p>
-            <p class="bubble me"><span class="who">Burbujas de Lau</span>Sí, 400 CUP. ¿Cuántas quieres?</p>
-            <p class="bubble">2 de sábila y 1 de manzanilla</p>
-            <p class="bubble me"><span class="who">Burbujas de Lau</span>Listo: 3 barras, 1.200 CUP. ¿Te lo llevo a Vedado?</p>
-            <p class="bubble">Perfecto, mañana en la tarde</p>
-          </div>
-          <div class="chat-foot"><span class="ok">● pedido confirmado</span><span>·</span><span>entrega en 24–48 h</span><span>·</span><span>pago contra entrega</span></div>
-        </div>
-      </figure>
-      <a class="price-card" href="#catalogo">
-        <div>
-          <p class="big">400 CUP</p>
-          <p class="sub">la barra · de 30 g a 120 g</p>
-        </div>
-        <div class="right">
-          <p class="txt">Cinco variedades, todas hechas en la misma olla</p>
-          <span class="rot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-        </div>
-      </a>
-    </div>
   </div>
 </section>
 
@@ -917,14 +855,8 @@ footer.site .f-about{margin-top:1rem;max-width:34ch;line-height:1.6;color:rgba(2
       </ol>
 
       <aside class="buy-card reveal">
-        <div class="price-row">
-          <div>
-            <p class="price" id="buyPrice">400 <span style="font-size:.42em">CUP</span></p>
-            <small>Precio por barra</small>
-          </div>
-          <p class="price-note">De 30 g a 120 g, según la variedad</p>
-        </div>
         <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg> Barras de 30 g a 120 g, según la variedad</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg> Jabón curado 4–6 semanas</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg> Sin plástico, sin perfume sintético</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg> Envío en La Habana en 24–48 h</li>
@@ -963,7 +895,7 @@ footer.site .f-about{margin-top:1rem;max-width:34ch;line-height:1.6;color:rgba(2
       </details>
       <details class="reveal">
         <summary>¿Cuánto cuesta una barra? <span class="plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <div class="answer">Las barras cuestan 400 CUP. El precio puede variar según el tamaño y los ingredientes; el catálogo siempre muestra el precio actualizado.</div>
+        <div class="answer">Cada barra tiene su precio según el tamaño y los ingredientes, y se ajusta cuando cambia el costo de las materias primas. En el catálogo ves siempre el precio del día, producto por producto: no manejamos un precio fijo «de portada».</div>
       </details>
       <details class="reveal">
         <summary>¿Cómo se paga? <span class="plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
@@ -1000,7 +932,7 @@ footer.site .f-about{margin-top:1rem;max-width:34ch;line-height:1.6;color:rgba(2
     <h2 class="display">Tu piel se merece<br>algo hecho con calma</h2>
     <p class="lead">Elige tus barras y te las llevo. Si no sabes cuál, escríbeme y te ayudo a encontrar la tuya.</p>
     <div class="hero-cta">
-      <a class="btn" href="#catalogo">Ver el catálogo <span class="tag">desde 400 CUP</span>
+      <a class="btn" href="#catalogo">Ver el catálogo
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
       <a class="btn ghost" href="https://wa.me/5354015519?text=Hola%20Burbujas%20de%20Lau%20%F0%9F%91%8B%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">
@@ -1173,15 +1105,6 @@ footer.site .f-about{margin-top:1rem;max-width:34ch;line-height:1.6;color:rgba(2
     $('#buyNote').textContent = S.deliveryNotice;
     $('#cartShipNote').textContent = S.deliveryNotice + ' Coordinamos por WhatsApp.';
   }
-  var cheapest = (DATA.products || []).reduce(function (min, p) {
-    var v = Number(p.price) || 0;
-    return min === null || v < min ? v : min;
-  }, null);
-  if (cheapest !== null) {
-    $('#buyPrice').innerHTML = Number(cheapest).toLocaleString('es-CU') +
-      ' <span style="font-size:.42em">' + esc(S.currency) + '</span>';
-  }
-
   /* ---------- imagen de producto ---------- */
   var RESPONSIVE = /^img\/(p[0-9]+)\.(jpe?g|png|webp)$/i;
   function media(p, cls, eager, sizes) {

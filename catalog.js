@@ -19,7 +19,7 @@ window.BDL_CATALOG = {
     email: "hola@burbujasdelau.com",
     announcement: "🎁 Envíos a toda La Habana y por encomienda a provincias · Pide por WhatsApp",
     deliveryNotice: "Envíos en toda La Habana y envíos por encomienda a provincias. Pedidos para familiares en Cuba desde cualquier país.",
-    heroTitle: "Jabones artesanales que cuidan tu piel",
+    heroTitle: "Jabones hechos a la medida para nutrir tu piel",
     heroSubtitle: "Barras hechas a mano en pequeños lotes con aceites naturales, arcillas y plantas. Sin químicos agresivos, con el aroma de lo hecho con calma.",
     seoTitle: "Burbujas de Lau · Jabones artesanales en La Habana, Cuba",
     seoDescription: "Jabones artesanales naturales hechos a mano en La Habana: lavanda, avena, rosa, sábila y manzanilla. Pide por WhatsApp con envío a toda Cuba.",
