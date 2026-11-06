@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 
-Sitemap: https://burbujasdelau.com/sitemap.xml
+Sitemap: https://drjh2777-glitch.github.io/burbujas-de-lau/sitemap.xml

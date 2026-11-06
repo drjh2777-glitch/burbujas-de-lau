@@ -23,7 +23,7 @@ window.BDL_CATALOG = {
     heroSubtitle: "Barras hechas a mano en pequeños lotes con aceites naturales, arcillas y plantas. Sin químicos agresivos, con el aroma de lo hecho con calma.",
     seoTitle: "Burbujas de Lau · Jabones artesanales en La Habana, Cuba",
     seoDescription: "Jabones artesanales naturales hechos a mano en La Habana: lavanda, avena, rosa, sábila y manzanilla. Pide por WhatsApp con envío a toda Cuba.",
-    siteUrl: "https://burbujasdelau.com/",
+    siteUrl: "https://drjh2777-glitch.github.io/burbujas-de-lau/",
     freeShippingFrom: 0
   },
   categories: [

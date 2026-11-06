@@ -3,7 +3,7 @@
    - El catálogo y las fotos se sirven desde el caché tras la primera visita.
    - El HTML y catalog.js se piden a la red primero (para ver precios nuevos),
      con reserva en caché si no hay datos o la red tarda más de 5 s. */
-const VERSION = 'bdl-v1';
+const VERSION = 'bdl-v2';
 const CORE = [
   './', 'index.html', 'catalog.js', 'site.webmanifest',
   'fonts/inter-var.woff2', 'fonts/fugaz-one-400.woff2',

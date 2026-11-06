@@ -3,7 +3,8 @@
 Web de jabonería artesanal (La Habana) con catálogo, carrito y pedidos por WhatsApp, más un panel privado para actualizar precios, productos e imágenes.
 
 **WhatsApp de pedidos:** +53 5401 5519
-**Dirección prevista:** https://burbujasdelau.com/
+**Dirección pública actual:** https://drjh2777-glitch.github.io/burbujas-de-lau/
+**Dominio propio (pendiente de registrar):** burbujasdelau.com
 
 ---
 
@@ -28,6 +29,11 @@ Web de jabonería artesanal (La Habana) con catálogo, carrito y pedidos por Wha
 
 ## 2. Publicar
 
+### Publicación actual: GitHub Pages
+La web está publicada en **https://drjh2777-glitch.github.io/burbujas-de-lau/** desde el repositorio `drjh2777-glitch/burbujas-de-lau`.
+Para actualizarla: sube los archivos modificados al repositorio (rama `main`) y GitHub la reconstruye sola en ~1 minuto.
+El archivo `.nojekyll` evita que GitHub procese el sitio con Jekyll.
+
 ### Opción A · Netlify Drop (gratis, sin cuenta técnica)
 1. Entra en `app.netlify.com/drop`.
 2. Arrastra **la carpeta completa** (la que contiene `index.html`).
@@ -48,7 +54,7 @@ Sube la carpeta al repositorio y publica. En Cloudflare Pages, `_headers` se apl
 
 ## 3. Cambiar de dominio (solo si no usas `burbujasdelau.com`)
 
-Busca y reemplaza `https://burbujasdelau.com/` en estos 5 sitios:
+Busca y reemplaza `https://drjh2777-glitch.github.io/burbujas-de-lau/` en estos 5 sitios:
 
 1. `index.html` → `rel="canonical"`, `og:url`, `og:image`, `twitter:image` y el JSON-LD (`@id`, `url`, `image`, `itemListElement`).
 2. `catalog.js` → `settings.siteUrl`.
