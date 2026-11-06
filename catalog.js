@@ -12,11 +12,11 @@ window.BDL_CATALOG = {
   settings: {
     brand: "Burbujas de Lau",
     tagline: "Jabones artesanales hechos a mano en La Habana",
-    whatsapp: "+5354015519",
+    whatsapp: "+5359964943",
     currency: "CUP",
     location: "La Habana, Cuba",
     hours: "Lun a Sáb · 9:00 a 18:00",
-    email: "hjrd82@gmail.com",
+    email: "drjh2777@gmail.com",
     announcement: "🎁 Envíos a toda La Habana y por encomienda a provincias · Pide por WhatsApp",
     deliveryNotice: "Envíos en toda La Habana y envíos por encomienda a provincias. Pedidos para familiares en Cuba desde cualquier país.",
     heroTitle: "Jabones hechos a la medida para nutrir tu piel",
@@ -101,7 +101,7 @@ window.BDL_CATALOG = {
   ],
   testimonials: [
     { name: "Mariela R.", text: "Los jabones de sábila son mi favorito. La piel queda suave todo el día y el aroma es delicioso. ¡Ya voy por el tercero!", role: "La Habana" },
-    { name: "Yusimí P.", text: "Pedí para mi mamá en Cuba desde Miami. Llegó rapidísimo por WhatsApp y ella quedó encantada con el de manzanilla.", role: "Miami, EE. UU." },
-    { name: "Carlos M.", text: "Se nota que están hechos a mano. El de avena me ayudó con la piel irritada; no lo cambio por nada.", role: "Vedado" }
+    { name: "Yusimí P.", text: "Pedí para mi mamá en Cuba desde Miami. Llegó rapidísimo y ella quedó encantada con el de manzanilla.", role: "Miami, EE. UU." },
+    { name: "Carlos M.", text: "Se nota que están hechos a mano, estan bien elaborados. El de avena me ayudó con la piel irritada; no lo cambio por nada.", role: "Vedado" }
   ]
 };
