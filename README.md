@@ -72,7 +72,7 @@ Busca y reemplaza `https://drjh2777-glitch.github.io/burbujas-de-lau/` en estos 
 - **Precios y productos:** Productos → lápiz → editar → **Guardar** → pestaña **Publicar** → **Descargar catalog.js** → subirlo al hosting.
 - **Imágenes:** arrastra la foto al recuadro. El panel la recorta 4:3, la reduce a 1400 px y la comprime en WebP.
 - **Agotados:** desactiva «Disponible para pedir». El producto sigue visible con la etiqueta *Agotado*.
-- **WhatsApp:** Ajustes → WhatsApp (ej.: `5354015519`) → Guardar → Publicar.
+- **WhatsApp:** Ajustes → WhatsApp (ej.: `5359964943`) → Guardar → Publicar.
 
 > Los cambios del panel se guardan **como borrador en tu navegador**. Para que los vean los clientes hay que descargar `catalog.js` y reemplazarlo en el hosting.
 
