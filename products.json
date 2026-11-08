@@ -1,0 +1,122 @@
+{
+  "$schema": "https://schema.org/ItemList",
+  "brand": "Burbujas de Lau",
+  "description": "Jabones artesanales hechos a mano en La Habana",
+  "siteUrl": "https://drjh2777-glitch.github.io/burbujas-de-lau/",
+  "currency": "CUP",
+  "whatsapp": "+5359964943",
+  "updatedAt": "2026-11-05T00:00:00.000Z",
+  "generatedFrom": "catalog.js",
+  "generatedAt": "2026-11-08",
+  "count": 5,
+  "categories": [
+    {
+      "id": "exfoliante",
+      "name": "Exfoliante"
+    },
+    {
+      "id": "suave",
+      "name": "Suave"
+    },
+    {
+      "id": "aromatico",
+      "name": "Aromático"
+    },
+    {
+      "id": "hidratante",
+      "name": "Hidratante"
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "slug": "lavanda-y-granos",
+      "sku": "P1",
+      "name": "Lavanda y granos",
+      "description": "Barra lila infusionada con flores de lavanda silvestre y un suave efecto exfoliante natural que calma y renueva la piel.",
+      "ingredients": "Aceite de oliva, manteca de karité, flores de lavanda, granos de avena, aceite esencial de lavanda.",
+      "category": "exfoliante",
+      "categoryName": "Exfoliante",
+      "weight": "80 g",
+      "price": 450,
+      "currency": "CUP",
+      "available": false,
+      "featured": true,
+      "image": "https://drjh2777-glitch.github.io/burbujas-de-lau/img/p1.jpg",
+      "alt": "Jabón artesanal de lavanda y granos con flores de lavanda silvestre",
+      "url": "https://drjh2777-glitch.github.io/burbujas-de-lau/producto/lavanda-y-granos.html"
+    },
+    {
+      "id": "p2",
+      "slug": "avena-y-semillas",
+      "sku": "P2",
+      "name": "Avena y semillas",
+      "description": "Barra cremosa con avena orgánica molida y miel silvestre que nutre en profundidad, aliviando irritaciones con espuma sedosa.",
+      "ingredients": "Aceite de coco, avena orgánica molida, miel silvestre, semillas de lino, manteca de cacao.",
+      "category": "suave",
+      "categoryName": "Suave",
+      "weight": "80 g",
+      "price": 450,
+      "currency": "CUP",
+      "available": false,
+      "featured": true,
+      "image": "https://drjh2777-glitch.github.io/burbujas-de-lau/img/p2.jpg",
+      "alt": "Jabón artesanal de avena orgánica y semillas con miel silvestre",
+      "url": "https://drjh2777-glitch.github.io/burbujas-de-lau/producto/avena-y-semillas.html"
+    },
+    {
+      "id": "p3",
+      "slug": "rosa-suave",
+      "sku": "P3",
+      "name": "Rosa suave",
+      "description": "Barra rosada enriquecida con arcilla rosa francesa y destilado de pétalos de rosa para una limpieza sedosa y reconfortante.",
+      "ingredients": "Aceite de oliva, arcilla rosa francesa, destilado de pétalos de rosa, aceite esencial de rosa.",
+      "category": "aromatico",
+      "categoryName": "Aromático",
+      "weight": "80 g",
+      "price": 450,
+      "currency": "CUP",
+      "available": false,
+      "featured": false,
+      "image": "https://drjh2777-glitch.github.io/burbujas-de-lau/img/p3.jpg",
+      "alt": "Jabón artesanal de rosa con arcilla rosa francesa y pétalos de rosa",
+      "url": "https://drjh2777-glitch.github.io/burbujas-de-lau/producto/rosa-suave.html"
+    },
+    {
+      "id": "p4",
+      "slug": "sabila",
+      "sku": "P4",
+      "name": "Sábila",
+      "description": "Barra verde con el poder natural de la sábila (aloe vera): limpia con suavidad, hidrata en profundidad y deja la piel fresca, suave y saludable. Hecha a mano, ideal para todo tipo de piel.",
+      "ingredients": "Pulpa de sábila (aloe vera), aceite de coco, glicerina vegetal, aceite de almendras.",
+      "category": "hidratante",
+      "categoryName": "Hidratante",
+      "weight": "80 g",
+      "price": 450,
+      "currency": "CUP",
+      "available": true,
+      "featured": true,
+      "image": "https://drjh2777-glitch.github.io/burbujas-de-lau/img/p4.jpg",
+      "alt": "Jabón artesanal de sábila (aloe vera) hidratante para todo tipo de piel",
+      "url": "https://drjh2777-glitch.github.io/burbujas-de-lau/producto/sabila.html"
+    },
+    {
+      "id": "p5",
+      "slug": "manzanilla",
+      "sku": "P5",
+      "name": "Manzanilla",
+      "description": "Barra artesanal de manzanilla que calma, cuida y protege tu piel de forma natural. Ayuda a aliviar irritaciones, hidrata en profundidad y deja una sensación limpia y suave. Ideal para todo tipo de piel.",
+      "ingredients": "Infusión de manzanilla, aceite de oliva, manteca de karité, aceite esencial de manzanilla.",
+      "category": "suave",
+      "categoryName": "Suave",
+      "weight": "80 g",
+      "price": 450,
+      "currency": "CUP",
+      "available": true,
+      "featured": false,
+      "image": "https://drjh2777-glitch.github.io/burbujas-de-lau/img/p5.jpg",
+      "alt": "Jabón artesanal de manzanilla que calma y protege la piel",
+      "url": "https://drjh2777-glitch.github.io/burbujas-de-lau/producto/manzanilla.html"
+    }
+  ]
+}

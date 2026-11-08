@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://drjh2777-glitch.github.io/burbujas-de-lau/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -12,29 +12,85 @@
       <image:caption>Barras de jabón artesanal hechas a mano en La Habana</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://drjh2777-glitch.github.io/burbujas-de-lau/img/p1.webp</image:loc>
+      <image:loc>https://drjh2777-glitch.github.io/burbujas-de-lau/img/p1.jpg</image:loc>
       <image:title>Jabón artesanal de lavanda y granos</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://drjh2777-glitch.github.io/burbujas-de-lau/img/p2.webp</image:loc>
+      <image:loc>https://drjh2777-glitch.github.io/burbujas-de-lau/img/p2.jpg</image:loc>
       <image:title>Jabón artesanal de avena y semillas</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://drjh2777-glitch.github.io/burbujas-de-lau/img/p3.webp</image:loc>
+      <image:loc>https://drjh2777-glitch.github.io/burbujas-de-lau/img/p3.jpg</image:loc>
       <image:title>Jabón artesanal de rosa suave</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://drjh2777-glitch.github.io/burbujas-de-lau/img/p4.webp</image:loc>
+      <image:loc>https://drjh2777-glitch.github.io/burbujas-de-lau/img/p4.jpg</image:loc>
       <image:title>Jabón artesanal de sábila</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://drjh2777-glitch.github.io/burbujas-de-lau/img/p5.webp</image:loc>
+      <image:loc>https://drjh2777-glitch.github.io/burbujas-de-lau/img/p5.jpg</image:loc>
       <image:title>Jabón artesanal de manzanilla</image:title>
     </image:image>
   </url>
   <url>
+    <loc>https://drjh2777-glitch.github.io/burbujas-de-lau/ai.html</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://drjh2777-glitch.github.io/burbujas-de-lau/producto/lavanda-y-granos.html</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://drjh2777-glitch.github.io/burbujas-de-lau/img/p1.jpg</image:loc>
+      <image:title>Lavanda y granos</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://drjh2777-glitch.github.io/burbujas-de-lau/producto/avena-y-semillas.html</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://drjh2777-glitch.github.io/burbujas-de-lau/img/p2.jpg</image:loc>
+      <image:title>Avena y semillas</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://drjh2777-glitch.github.io/burbujas-de-lau/producto/rosa-suave.html</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://drjh2777-glitch.github.io/burbujas-de-lau/img/p3.jpg</image:loc>
+      <image:title>Rosa suave</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://drjh2777-glitch.github.io/burbujas-de-lau/producto/sabila.html</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://drjh2777-glitch.github.io/burbujas-de-lau/img/p4.jpg</image:loc>
+      <image:title>Sábila</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://drjh2777-glitch.github.io/burbujas-de-lau/producto/manzanilla.html</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://drjh2777-glitch.github.io/burbujas-de-lau/img/p5.jpg</image:loc>
+      <image:title>Manzanilla</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://drjh2777-glitch.github.io/burbujas-de-lau/privacidad.html</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

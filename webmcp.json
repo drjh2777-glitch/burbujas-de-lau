@@ -1,0 +1,266 @@
+{
+  "name": "Burbujas de Lau",
+  "version": "1.0.0",
+  "description": "Jabones artesanales hechos a mano en La Habana, Cuba. Pedidos por WhatsApp, sin pasarela de pago. Este manifiesto describe las herramientas que un agente de IA puede usar para consultar el catálogo, precios y disponibilidad, recomendar una barra y preparar un pedido.",
+  "homepage": "https://drjh2777-glitch.github.io/burbujas-de-lau/",
+  "documentation": "https://drjh2777-glitch.github.io/burbujas-de-lau/ai.html",
+  "llmsTxt": "https://drjh2777-glitch.github.io/burbujas-de-lau/llms.txt",
+  "language": "es",
+  "currency": "CUP",
+  "country": "CU",
+  "transport": {
+    "type": "javascript",
+    "global": "window.BDL_MCP",
+    "script": "https://drjh2777-glitch.github.io/burbujas-de-lau/webmcp.js",
+    "requires": "https://drjh2777-glitch.github.io/burbujas-de-lau/catalog.js",
+    "notes": "Capa sin dependencias, sin red y sin estado. Lee window.BDL_CATALOG y no modifica el carrito de la tienda."
+  },
+  "dataSources": {
+    "catalog": "https://drjh2777-glitch.github.io/burbujas-de-lau/products.json",
+    "source": "https://drjh2777-glitch.github.io/burbujas-de-lau/catalog.js",
+    "images": "https://drjh2777-glitch.github.io/burbujas-de-lau/img/"
+  },
+  "tools": [
+    {
+      "name": "searchProducts",
+      "description": "Busca jabones del catálogo por texto libre, tipo, precio máximo y disponibilidad. Devuelve una lista de productos resumidos.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Texto libre: nombre, ingrediente, aroma o tipo de piel (por ejemplo 'sábila', 'avena', 'piel sensible')."
+          },
+          "category": {
+            "type": "string",
+            "enum": ["exfoliante", "suave", "aromatico", "hidratante"],
+            "description": "Filtra por tipo de jabón."
+          },
+          "maxPrice": {
+            "type": "number",
+            "description": "Precio máximo por barra, en CUP."
+          },
+          "availableOnly": {
+            "type": "boolean",
+            "description": "Si es true, devuelve solo los jabones disponibles ahora."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 20
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "array",
+        "items": { "$ref": "#/definitions/product" }
+      }
+    },
+    {
+      "name": "getProduct",
+      "description": "Devuelve la ficha completa de un jabón: descripción, ingredientes, precio, disponibilidad, imagen y URL.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "idOrSlug": {
+            "type": "string",
+            "description": "Identificador (p1…p5), slug (lavanda-y-granos) o nombre del jabón."
+          }
+        },
+        "required": ["idOrSlug"],
+        "additionalProperties": false
+      },
+      "outputSchema": { "$ref": "#/definitions/product" }
+    },
+    {
+      "name": "getPrice",
+      "description": "Devuelve solo el precio y la moneda de un jabón concreto.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "idOrSlug": { "type": "string", "description": "Identificador, slug o nombre del jabón." }
+        },
+        "required": ["idOrSlug"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "slug": { "type": "string" },
+          "name": { "type": "string" },
+          "price": { "type": "number" },
+          "currency": { "type": "string" },
+          "weight": { "type": "string" },
+          "url": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    {
+      "name": "getStock",
+      "description": "Devuelve la disponibilidad de un jabón, o el resumen de disponibilidad de todo el catálogo si no se indica ninguno.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "idOrSlug": {
+            "type": "string",
+            "description": "Opcional. Si se omite, devuelve el stock de todos los jabones."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "total": { "type": "integer" },
+          "available": { "type": "integer" },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string" },
+                "slug": { "type": "string" },
+                "name": { "type": "string" },
+                "available": { "type": "boolean" },
+                "availability": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "recommendProduct",
+      "description": "Recomienda una barra según el tipo de piel, la necesidad de la persona y su presupuesto, con una razón y dos alternativas.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "skin": {
+            "type": "string",
+            "description": "Tipo de piel: seca, sensible, mixta, grasa, normal, madura o de niño."
+          },
+          "concerns": {
+            "type": "string",
+            "description": "Necesidad o problema: hidratación, rojeces, exfoliar, brillo, regalo…"
+          },
+          "budget": {
+            "type": "number",
+            "description": "Presupuesto máximo por barra, en CUP."
+          },
+          "preferAvailable": {
+            "type": "boolean",
+            "default": true,
+            "description": "Si es true, prioriza jabones disponibles ahora."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "product": { "$ref": "#/definitions/product" },
+          "reason": { "type": "string" },
+          "alternatives": { "type": "array", "items": { "$ref": "#/definitions/product" } },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    {
+      "name": "createWhatsAppOrder",
+      "description": "Arma el pedido y devuelve el enlace de WhatsApp con el mensaje ya escrito y el total en CUP. No envía nada: el usuario o el agente abre el enlace y lo envía desde su cuenta.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string", "description": "Identificador, slug o nombre del jabón." },
+                "qty": { "type": "integer", "minimum": 1, "maximum": 99, "default": 1 }
+              },
+              "required": ["id"]
+            }
+          },
+          "name": { "type": "string", "description": "Nombre de quien recibe el pedido." },
+          "address": { "type": "string", "description": "Dirección o municipio de entrega." },
+          "note": { "type": "string", "description": "Nota libre para Lau." }
+        },
+        "required": ["items"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "url": { "type": "string", "format": "uri", "description": "Enlace wa.me con el pedido escrito." },
+          "message": { "type": "string" },
+          "total": { "type": "number" },
+          "currency": { "type": "string" },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string" },
+                "name": { "type": "string" },
+                "qty": { "type": "integer" },
+                "unitPrice": { "type": "number" },
+                "subtotal": { "type": "number" }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "exportCatalog",
+      "description": "Devuelve el catálogo completo (datos de la tienda, categorías y todos los jabones) en un solo objeto.",
+      "inputSchema": { "type": "object", "properties": {}, "additionalProperties": false },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "brand": { "type": "string" },
+          "siteUrl": { "type": "string", "format": "uri" },
+          "currency": { "type": "string" },
+          "whatsapp": { "type": "string" },
+          "updatedAt": { "type": "string" },
+          "products": { "type": "array", "items": { "$ref": "#/definitions/product" } }
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "product": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Identificador interno, p1…p5." },
+        "slug": { "type": "string", "description": "Identificador legible, por ejemplo lavanda-y-granos." },
+        "sku": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "ingredients": { "type": "string" },
+        "category": { "type": "string" },
+        "categoryName": { "type": "string" },
+        "weight": { "type": "string" },
+        "price": { "type": "number" },
+        "currency": { "type": "string" },
+        "available": { "type": "boolean" },
+        "availability": { "type": "string" },
+        "featured": { "type": "boolean" },
+        "image": { "type": "string", "format": "uri" },
+        "alt": { "type": "string" },
+        "url": { "type": "string", "format": "uri" }
+      }
+    }
+  },
+  "constraints": [
+    "Precios y disponibilidad cambian: la fuente de verdad es products.json.",
+    "No existe pago con tarjeta, stock reservado ni envío internacional desde Cuba.",
+    "Los jabones son cosméticos, no medicamentos: no tratan enfermedades de la piel.",
+    "Todo pedido se confirma por WhatsApp con Lau antes de la entrega."
+  ]
+}

@@ -3,12 +3,13 @@
    - El catálogo y las fotos se sirven desde el caché tras la primera visita.
    - El HTML y catalog.js se piden a la red primero (para ver precios nuevos),
      con reserva en caché si no hay datos o la red tarda más de 5 s. */
-const VERSION = 'bdl-v2';
+const VERSION = 'bdl-v5';
 const CORE = [
-  './', 'index.html', 'catalog.js', 'site.webmanifest',
+  './', 'index.html', 'catalog.js', 'webmcp.js', 'products.json', 'ai.html', 'estilo.css', 'site.webmanifest',
   'fonts/inter-var.woff2', 'fonts/fugaz-one-400.woff2',
   'fonts/jetbrains-mono-400.woff2', 'fonts/playfair-display-500-italic.woff2', 'fonts/caveat-600.woff2',
   'img/hero-800.webp', 'img/hero-1200.webp', 'img/hero.webp', 'img/hero.jpg',
+  'img/logo.png', 'img/logo-96.webp', 'img/portada-480.webp', 'img/portada-800.webp',
   'img/p1-480.webp', 'img/p2-480.webp', 'img/p3-480.webp', 'img/p4-480.webp', 'img/p5-480.webp',
   'img/atelier-600.webp'
 ];

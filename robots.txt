@@ -1,5 +1,14 @@
+# Burbujas de Lau · robots.txt
 User-agent: *
 Allow: /
+Allow: /products.json
+Allow: /webmcp.json
+Allow: /webmcp.js
+Allow: /llms.txt
+Allow: /ai.html
+Allow: /catalog.js
+Allow: /producto/
 Disallow: /admin.html
 
+# Resumen para modelos de lenguaje: /llms.txt
 Sitemap: https://drjh2777-glitch.github.io/burbujas-de-lau/sitemap.xml

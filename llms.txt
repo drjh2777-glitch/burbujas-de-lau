@@ -1,0 +1,68 @@
+# Burbujas de Lau
+
+> Jabones artesanales hechos a mano en La Habana. Tienda sin pasarela de pago: los pedidos se cierran por WhatsApp. Precios en CUP.
+
+## Negocio
+
+- Nombre: Burbujas de Lau
+- Qué es: jabonería artesanal. Barras de 80 g hechas a mano en lotes pequeños, con aceites vegetales, mantecas, arcillas y plantas.
+- Dónde: La Habana, Cuba
+- Horario: Lun a Sáb · 9:00 a 18:00
+- WhatsApp de pedidos: +5359964943 (enlace directo: https://wa.me/5359964943)
+- Correo: drjh2777@gmail.com
+- Web: https://drjh2777-glitch.github.io/burbujas-de-lau/
+- Moneda: CUP (peso cubano). No se aceptan pagos con tarjeta internacional.
+- Entrega: Envíos en toda La Habana y envíos por encomienda a provincias. Pedidos para familiares en Cuba desde cualquier país.
+- Pago: efectivo contra entrega o transferencia (Transfermóvil / Enzona). Pedidos desde el exterior se coordinan por WhatsApp.
+
+## Catálogo (5 jabones)
+
+- [Lavanda y granos](https://drjh2777-glitch.github.io/burbujas-de-lau/producto/lavanda-y-granos.html) — Exfoliante · 80 g · 450 CUP · agotado. Barra lila infusionada con flores de lavanda silvestre y un suave efecto exfoliante natural que calma y renueva la piel. Ingredientes: Aceite de oliva, manteca de karité, flores de lavanda, granos de avena, aceite esencial de lavanda.
+- [Avena y semillas](https://drjh2777-glitch.github.io/burbujas-de-lau/producto/avena-y-semillas.html) — Suave · 80 g · 450 CUP · agotado. Barra cremosa con avena orgánica molida y miel silvestre que nutre en profundidad, aliviando irritaciones con espuma sedosa. Ingredientes: Aceite de coco, avena orgánica molida, miel silvestre, semillas de lino, manteca de cacao.
+- [Rosa suave](https://drjh2777-glitch.github.io/burbujas-de-lau/producto/rosa-suave.html) — Aromático · 80 g · 450 CUP · agotado. Barra rosada enriquecida con arcilla rosa francesa y destilado de pétalos de rosa para una limpieza sedosa y reconfortante. Ingredientes: Aceite de oliva, arcilla rosa francesa, destilado de pétalos de rosa, aceite esencial de rosa.
+- [Sábila](https://drjh2777-glitch.github.io/burbujas-de-lau/producto/sabila.html) — Hidratante · 80 g · 450 CUP · disponible. Barra verde con el poder natural de la sábila (aloe vera): limpia con suavidad, hidrata en profundidad y deja la piel fresca, suave y saludable. Hecha a mano, ideal para todo tipo de piel. Ingredientes: Pulpa de sábila (aloe vera), aceite de coco, glicerina vegetal, aceite de almendras.
+- [Manzanilla](https://drjh2777-glitch.github.io/burbujas-de-lau/producto/manzanilla.html) — Suave · 80 g · 450 CUP · disponible. Barra artesanal de manzanilla que calma, cuida y protege tu piel de forma natural. Ayuda a aliviar irritaciones, hidrata en profundidad y deja una sensación limpia y suave. Ideal para todo tipo de piel. Ingredientes: Infusión de manzanilla, aceite de oliva, manteca de karité, aceite esencial de manzanilla.
+
+## Cómo se pide
+
+1. Se elige el jabón en el catálogo o se pide una recomendación por WhatsApp.
+2. Se envía el pedido por WhatsApp (+5359964943) con nombre, dirección de entrega y forma de pago.
+3. Se confirma disponibilidad, total y fecha de entrega en la conversación.
+
+## Recursos para agentes de IA
+
+- https://drjh2777-glitch.github.io/burbujas-de-lau/products.json — catálogo completo en JSON (precio, disponibilidad, ingredientes, imagen y URL de cada producto).
+- https://drjh2777-glitch.github.io/burbujas-de-lau/webmcp.json — definición de las herramientas WebMCP disponibles.
+- https://drjh2777-glitch.github.io/burbujas-de-lau/webmcp.js — implementación en JavaScript: window.BDL_MCP.
+- https://drjh2777-glitch.github.io/burbujas-de-lau/ai.html — la misma información en una página legible.
+- https://drjh2777-glitch.github.io/burbujas-de-lau/catalog.js — archivo fuente editable del catálogo (window.BDL_CATALOG).
+
+## Herramientas disponibles
+
+- searchProducts(query, category, maxPrice, availableOnly) — busca jabones por texto, tipo o precio.
+- getProduct(idOrSlug) — devuelve un jabón completo.
+- getPrice(idOrSlug) — precio y moneda.
+- getStock(idOrSlug) — disponibilidad actual, o de todo el catálogo.
+- recommendProduct(skin, concerns, budget) — recomienda una barra según el tipo de piel.
+- createWhatsAppOrder(items, name, address) — arma el enlace de WhatsApp con el pedido y el total.
+- exportCatalog() — catálogo completo en un objeto.
+
+## Reglas de uso del contenido
+
+- Precios y disponibilidad cambian: la fuente de verdad es https://drjh2777-glitch.github.io/burbujas-de-lau/products.json o https://drjh2777-glitch.github.io/burbujas-de-lau/catalog.js. No los inventes ni los redondees.
+- Los productos son cosméticos, no medicamentos: no sirven para tratar enfermedades de la piel.
+- No hay pasarela de pago, ni stock reservado, ni envíos internacionales desde Cuba. Todo pedido se confirma por WhatsApp.
+- Las imágenes son de Burbujas de Lau; se pueden citar enlazando a la página del producto.
+
+## Páginas
+
+- [Burbujas de Lau — inicio](https://drjh2777-glitch.github.io/burbujas-de-lau/)
+- [Lavanda y granos](https://drjh2777-glitch.github.io/burbujas-de-lau/producto/lavanda-y-granos.html)
+- [Avena y semillas](https://drjh2777-glitch.github.io/burbujas-de-lau/producto/avena-y-semillas.html)
+- [Rosa suave](https://drjh2777-glitch.github.io/burbujas-de-lau/producto/rosa-suave.html)
+- [Sábila](https://drjh2777-glitch.github.io/burbujas-de-lau/producto/sabila.html)
+- [Manzanilla](https://drjh2777-glitch.github.io/burbujas-de-lau/producto/manzanilla.html)
+- [Información para asistentes de IA](https://drjh2777-glitch.github.io/burbujas-de-lau/ai.html)
+- [Política de privacidad](https://drjh2777-glitch.github.io/burbujas-de-lau/privacidad.html)
+
+Última actualización: 2026-11-08.

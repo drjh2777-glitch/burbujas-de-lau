@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Información para asistentes de IA · Burbujas de Lau</title>
+<meta name="description" content="Datos de la tienda Burbujas de Lau para asistentes de IA: catálogo en JSON, herramientas WebMCP, precios en CUP, disponibilidad y cómo se hace un pedido por WhatsApp.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#EFEAE0">
+<link rel="canonical" href="https://drjh2777-glitch.github.io/burbujas-de-lau/ai.html">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" as="font" type="font/woff2" href="fonts/inter-var.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/fugaz-one-400.woff2" crossorigin>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Burbujas de Lau">
+<meta property="og:title" content="Información para asistentes de IA · Burbujas de Lau">
+<meta property="og:description" content="Catálogo, precios y reglas de la tienda en un solo lugar, para que un asistente no tenga que adivinar nada.">
+<meta property="og:url" content="https://drjh2777-glitch.github.io/burbujas-de-lau/ai.html">
+<meta property="og:image" content="https://drjh2777-glitch.github.io/burbujas-de-lau/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="alternate" type="application/json" href="https://drjh2777-glitch.github.io/burbujas-de-lau/products.json" title="Catálogo completo en JSON">
+<link rel="alternate" type="application/json" href="https://drjh2777-glitch.github.io/burbujas-de-lau/webmcp.json" title="Herramientas para agentes IA">
+<link rel="alternate" type="text/plain" href="https://drjh2777-glitch.github.io/burbujas-de-lau/llms.txt" title="Resumen para modelos de lenguaje">
+<link rel="help" href="https://drjh2777-glitch.github.io/burbujas-de-lau/ai.html" title="Información para asistentes de IA">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Catálogo Burbujas de Lau",
+  "numberOfItems": 5,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "url": "https://drjh2777-glitch.github.io/burbujas-de-lau/producto/lavanda-y-granos.html",
+      "name": "Lavanda y granos"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "url": "https://drjh2777-glitch.github.io/burbujas-de-lau/producto/avena-y-semillas.html",
+      "name": "Avena y semillas"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "url": "https://drjh2777-glitch.github.io/burbujas-de-lau/producto/rosa-suave.html",
+      "name": "Rosa suave"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "url": "https://drjh2777-glitch.github.io/burbujas-de-lau/producto/sabila.html",
+      "name": "Sábila"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "url": "https://drjh2777-glitch.github.io/burbujas-de-lau/producto/manzanilla.html",
+      "name": "Manzanilla"
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<a class="skip" href="#inicio">Saltar al contenido</a>
+
+<div class="topbar" id="announceBar">
+  <strong>Envíos</strong> a toda La Habana<span class="tb-long"> y por encomienda a provincias · Pedidos por WhatsApp <a href="https://wa.me/5359964943" style="color:#ff8856;text-decoration:none" rel="noopener">+53 5996 4943</a></span>
+</div>
+<header class="site-header" id="header">
+  <div class="wrap header-in">
+    <a class="brand" href="index.html" aria-label="Burbujas de Lau, inicio">
+      <picture>
+        <source type="image/webp" srcset="img/logo-96.webp 96w, img/logo-192.webp 192w" sizes="38px">
+        <img class="brand-mark" src="img/logo.png" alt="" width="38" height="38" decoding="async">
+      </picture>
+      <span>
+        <span class="brand-name">Burbujas de Lau</span>
+        <span class="brand-sub">Jabones artesanales · La Habana</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="index.html#catalogo">Catálogo</a>
+      <a href="index.html#porque">Por qué</a>
+      <a href="index.html#proceso">Cómo se hace</a>
+      <a href="index.html#preguntas">Preguntas</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn sm hdr-wa" href="https://wa.me/5359964943?text=Hola%20Burbujas%20de%20Lau%20%F0%9F%91%8B%20quiero%20pedir%20jabones" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.06 24l1.7-6.2A11.9 11.9 0 0 1 .14 11.9C.14 5.3 5.5 0 12.06 0a11.8 11.8 0 0 1 8.42 3.5 11.8 11.8 0 0 1 3.49 8.41c0 6.6-5.36 11.9-11.91 11.9a11.9 11.9 0 0 1-5.7-1.45L.06 24zM6.6 20.2l.36.2a9.9 9.9 0 0 0 5.1 1.4c5.44 0 9.87-4.4 9.87-9.83a9.8 9.8 0 0 0-2.9-6.98A9.8 9.8 0 0 0 12.06 2C6.6 2 2.2 6.4 2.2 11.84c0 1.85.5 3.6 1.4 5.13l.24.38-1 3.66 3.76-.8z"/><path d="M9.1 6.9c-.2-.45-.4-.46-.58-.47l-.5-.01c-.17 0-.45.07-.68.33-.24.26-.9.88-.9 2.14s.92 2.48 1.05 2.65c.13.17 1.8 2.84 4.4 3.86 2.15.85 2.6.68 3.06.64.47-.04 1.5-.61 1.72-1.2.2-.6.2-1.1.14-1.2-.06-.12-.22-.18-.46-.3-.24-.13-1.5-.74-1.73-.82-.23-.09-.4-.13-.57.12-.17.26-.65.84-.8 1-.14.18-.29.2-.53.07-.24-.12-1.03-.38-1.96-1.21-.72-.65-1.2-1.44-1.34-1.69-.14-.25-.02-.38.1-.5.12-.12.29-.31.42-.47.14-.16.18-.27.27-.45.09-.18.04-.33-.02-.46-.06-.13-.56-1.4-.77-1.9z"/></svg>
+        Pedir
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- ============ cabecera ============ -->
+<section class="sec" style="padding-bottom:0">
+  <div class="wrap">
+    <nav class="card-meta" aria-label="Ruta" style="margin-bottom:1.1rem">
+      <a href="index.html" style="text-decoration:none;color:inherit">Inicio</a>
+      <span aria-hidden="true">·</span>
+      <span style="color:var(--ink)">Asistentes de IA</span>
+    </nav>
+    <div class="sec-head" style="max-width:46rem">
+      <p class="eyebrow">Datos abiertos de la tienda</p>
+      <h1 class="display" style="font-size:clamp(2rem,5vw,3.6rem);margin-top:1rem">Para que un asistente<br><span style="color:var(--terra-deep)">no tenga que adivinar</span></h1>
+      <p class="lead">Esta página existe para ChatGPT, Copilot, Gemini, Perplexity, Claude y cualquier agente: reúne el catálogo, los precios y las reglas de la tienda en un solo lugar. Todo sale de <a href="catalog.js" style="color:var(--terra-deep)">catalog.js</a>, así que si cambia un precio, cambia aquí.</p>
+      <div class="hero-cta">
+        <a class="btn" href="products.json">Ver products.json
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a class="btn ghost" href="llms.txt">Leer llms.txt</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="hr">
+
+<!-- ============ la tienda en cinco líneas ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Resumen</p>
+      <h2 class="display">La tienda<br>en cinco líneas</h2>
+    </div>
+    <div class="features">
+      <article class="feature">
+        <p class="num">01</p>
+        <div>
+          <h3>Quién hace los jabones</h3>
+          <p>Burbujas de Lau es una jabonería artesanal de La Habana, Cuba: lotes pequeños, aceites vegetales, mantecas, arcillas y plantas. No hay fábrica detrás.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <p class="num">02</p>
+        <div>
+          <h3>Qué se vende</h3>
+          <p>5 variedades de 80 g a 450 CUP cada una, en CUP.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <p class="num">03</p>
+        <div>
+          <h3>Cómo se compra</h3>
+          <p>No hay pasarela de pago. Se elige la barra, se escribe por WhatsApp al +5359964943 y se coordina entrega y pago en la conversación.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <p class="num">04</p>
+        <div>
+          <h3>Dónde se entrega</h3>
+          <p>La Habana en 24–48 h, en los 15 municipios. Al resto de Cuba, por encomienda con el mensajero que prefiera el cliente.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <p class="num">05</p>
+        <div>
+          <h3>Cómo se paga</h3>
+          <p>Efectivo contra entrega o transferencia (Transfermóvil / Enzona). Los pedidos desde el exterior se pagan por la vía que se acuerde por WhatsApp.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ catálogo ============ -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">El catálogo</p>
+      <h2 class="display">Las 5 barras</h2>
+      <p class="lead">Precio por barra, en CUP. La disponibilidad cambia con cada lote: compruébala en <a href="products.json" style="color:var(--terra-deep)">products.json</a> antes de afirmar nada.</p>
+    </div>
+    <div class="grid" style="margin-top:2rem">
+      <a class="card" href="producto/lavanda-y-granos.html" style="text-decoration:none">
+        <div class="card-media">
+          <picture><source type="image/webp" sizes="(max-width:640px) 92vw, 300px" srcset="img/p1-480.webp 480w, img/p1-760.webp 760w, img/p1.webp 1000w"><img src="img/p1.jpg" alt="Jabón artesanal de lavanda y granos con flores de lavanda silvestre" width="1000" height="750" loading="lazy" decoding="async"></picture>
+          <span class="badge out">Agotado</span>
+        </div>
+        <div class="card-body">
+          <p class="card-meta"><span>P1</span><span aria-hidden="true">·</span><span>Exfoliante</span></p>
+          <h3 class="card-title">Lavanda y granos</h3>
+          <div class="card-foot">
+            <p class="card-price">450 CUP<small>agotado</small></p>
+            <span class="link-arrow" style="font-size:10px">Ver ficha</span>
+          </div>
+        </div>
+      </a>
+      <a class="card" href="producto/avena-y-semillas.html" style="text-decoration:none">
+        <div class="card-media">
+          <picture><source type="image/webp" sizes="(max-width:640px) 92vw, 300px" srcset="img/p2-480.webp 480w, img/p2-760.webp 760w, img/p2.webp 1000w"><img src="img/p2.jpg" alt="Jabón artesanal de avena orgánica y semillas con miel silvestre" width="1000" height="750" loading="lazy" decoding="async"></picture>
+          <span class="badge out">Agotado</span>
+        </div>
+        <div class="card-body">
+          <p class="card-meta"><span>P2</span><span aria-hidden="true">·</span><span>Suave</span></p>
+          <h3 class="card-title">Avena y semillas</h3>
+          <div class="card-foot">
+            <p class="card-price">450 CUP<small>agotado</small></p>
+            <span class="link-arrow" style="font-size:10px">Ver ficha</span>
+          </div>
+        </div>
+      </a>
+      <a class="card" href="producto/rosa-suave.html" style="text-decoration:none">
+        <div class="card-media">
+          <picture><source type="image/webp" sizes="(max-width:640px) 92vw, 300px" srcset="img/p3-480.webp 480w, img/p3-760.webp 760w, img/p3.webp 1000w"><img src="img/p3.jpg" alt="Jabón artesanal de rosa con arcilla rosa francesa y pétalos de rosa" width="1000" height="750" loading="lazy" decoding="async"></picture>
+          <span class="badge out">Agotado</span>
+        </div>
+        <div class="card-body">
+          <p class="card-meta"><span>P3</span><span aria-hidden="true">·</span><span>Aromático</span></p>
+          <h3 class="card-title">Rosa suave</h3>
+          <div class="card-foot">
+            <p class="card-price">450 CUP<small>agotado</small></p>
+            <span class="link-arrow" style="font-size:10px">Ver ficha</span>
+          </div>
+        </div>
+      </a>
+      <a class="card" href="producto/sabila.html" style="text-decoration:none">
+        <div class="card-media">
+          <picture><source type="image/webp" sizes="(max-width:640px) 92vw, 300px" srcset="img/p4-480.webp 480w, img/p4-760.webp 760w, img/p4.webp 1000w"><img src="img/p4.jpg" alt="Jabón artesanal de sábila (aloe vera) hidratante para todo tipo de piel" width="1000" height="750" loading="lazy" decoding="async"></picture>
+          
+        </div>
+        <div class="card-body">
+          <p class="card-meta"><span>P4</span><span aria-hidden="true">·</span><span>Hidratante</span></p>
+          <h3 class="card-title">Sábila</h3>
+          <div class="card-foot">
+            <p class="card-price">450 CUP<small>disponible</small></p>
+            <span class="link-arrow" style="font-size:10px">Ver ficha</span>
+          </div>
+        </div>
+      </a>
+      <a class="card" href="producto/manzanilla.html" style="text-decoration:none">
+        <div class="card-media">
+          <picture><source type="image/webp" sizes="(max-width:640px) 92vw, 300px" srcset="img/p5-480.webp 480w, img/p5-760.webp 760w, img/p5.webp 1000w"><img src="img/p5.jpg" alt="Jabón artesanal de manzanilla que calma y protege la piel" width="1000" height="750" loading="lazy" decoding="async"></picture>
+          
+        </div>
+        <div class="card-body">
+          <p class="card-meta"><span>P5</span><span aria-hidden="true">·</span><span>Suave</span></p>
+          <h3 class="card-title">Manzanilla</h3>
+          <div class="card-foot">
+            <p class="card-price">450 CUP<small>disponible</small></p>
+            <span class="link-arrow" style="font-size:10px">Ver ficha</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ herramientas ============ -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">WebMCP</p>
+      <h2 class="display">Siete herramientas<br>listas para usar</h2>
+      <p class="lead">La definición está en <a href="webmcp.json" style="color:var(--terra-deep)">webmcp.json</a> y la implementación en <a href="webmcp.js" style="color:var(--terra-deep)">webmcp.js</a>, que expone <code class="mono">window.BDL_MCP</code> sobre el catálogo ya cargado.</p>
+    </div>
+    <div class="features">
+      <article class="feature">
+        <p class="num">01</p>
+        <div>
+          <h3>Buscar jabones</h3>
+          <p>searchProducts({ query, category, maxPrice, availableOnly }) — búsqueda por texto, tipo o precio máximo.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <p class="num">02</p>
+        <div>
+          <h3>Ver una ficha</h3>
+          <p>getProduct(idOrSlug) — descripción, ingredientes, peso, imagen y URL de un jabón.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <p class="num">03</p>
+        <div>
+          <h3>Consultar el precio</h3>
+          <p>getPrice(idOrSlug) — precio y moneda, sin adornos.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <p class="num">04</p>
+        <div>
+          <h3>Consultar el stock</h3>
+          <p>getStock(idOrSlug) — disponibilidad de uno o de todo el catálogo.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <p class="num">05</p>
+        <div>
+          <h3>Recomendar</h3>
+          <p>recommendProduct({ skin, concerns, budget }) — una barra con su razón y dos alternativas.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <p class="num">06</p>
+        <div>
+          <h3>Preparar el pedido</h3>
+          <p>createWhatsAppOrder({ items, name, address }) — devuelve el enlace de WhatsApp con el pedido y el total escritos.</p>
+        </div>
+      </article>
+      <article class="feature">
+        <p class="num">07</p>
+        <div>
+          <h3>Exportar todo</h3>
+          <p>exportCatalog() — catálogo completo en un objeto, para trabajar sin más llamadas.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ lo que sí y lo que no ============ -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Límites</p>
+      <h2 class="display">Lo que sí<br>y lo que no</h2>
+    </div>
+    <div class="two-col">
+      <div class="col yes">
+        <h3><i></i>Sí se puede afirmar</h3>
+        <ul>
+          <li>Que las barras se hacen a mano en La Habana, en lotes pequeños.</li>
+          <li>Que el precio del día y la disponibilidad están en products.json.</li>
+          <li>Que el pedido se cierra por WhatsApp al +53 5996 4943.</li>
+          <li>Que se entrega en La Habana en 24–48 h y por encomienda a las provincias.</li>
+          <li>Que el pago es en efectivo contra entrega o por transferencia.</li>
+        </ul>
+      </div>
+      <div class="col no">
+        <h3><i></i>No se debe afirmar</h3>
+        <ul>
+          <li>Que hay pago con tarjeta o envío internacional desde Cuba: no existe.</li>
+          <li>Que un jabón cura una enfermedad de la piel: son cosméticos, no medicamentos.</li>
+          <li>Que hay stock reservado o apartado: el pedido se confirma en la conversación.</li>
+          <li>Un precio distinto al de products.json, aunque parezca razonable.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ recursos ============ -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Recursos</p>
+      <h2 class="display">Los archivos<br>que importan</h2>
+    </div>
+    <div class="catalog-note" style="margin-top:1.5rem">
+      <p><strong style="color:var(--ink)">products.json</strong> — catálogo completo con precio, disponibilidad, ingredientes, imagen y URL de cada barra.</p>
+      <a class="link-arrow" href="products.json">Abrir →</a>
+    </div>
+    <div class="catalog-note" style="margin-top:.75rem">
+      <p><strong style="color:var(--ink)">webmcp.json</strong> — las siete herramientas con su esquema de entrada y salida.</p>
+      <a class="link-arrow" href="webmcp.json">Abrir →</a>
+    </div>
+    <div class="catalog-note" style="margin-top:.75rem">
+      <p><strong style="color:var(--ink)">llms.txt</strong> — el mismo contenido en texto plano, para lectores de modelos de lenguaje.</p>
+      <a class="link-arrow" href="llms.txt">Abrir →</a>
+    </div>
+    <div class="catalog-note" style="margin-top:.75rem">
+      <p><strong style="color:var(--ink)">catalog.js</strong> — el archivo que Lau edita desde el panel. Es la fuente de todo lo demás.</p>
+      <a class="link-arrow" href="catalog.js">Abrir →</a>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <p class="eyebrow" style="justify-content:center">Hoy eliges el tuyo</p>
+    <h2 class="display">Tu piel se merece<br>algo hecho con calma</h2>
+    <p class="lead">Elige tus barras y te las llevo. Si no sabes cuál, escríbeme y te ayudo a encontrar la tuya.</p>
+    <div class="hero-cta">
+      <a class="btn" href="index.html#catalogo">Ver el catálogo
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a class="btn ghost" href="https://wa.me/5359964943?text=Hola%20Burbujas%20de%20Lau%20%F0%9F%91%8B%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.06 24l1.7-6.2A11.9 11.9 0 0 1 .14 11.9C.14 5.3 5.5 0 12.06 0a11.8 11.8 0 0 1 8.42 3.5 11.8 11.8 0 0 1 3.49 8.41c0 6.6-5.36 11.9-11.91 11.9a11.9 11.9 0 0 1-5.7-1.45L.06 24zM6.6 20.2l.36.2a9.9 9.9 0 0 0 5.1 1.4c5.44 0 9.87-4.4 9.87-9.83a9.8 9.8 0 0 0-2.9-6.98A9.8 9.8 0 0 0 12.06 2C6.6 2 2.2 6.4 2.2 11.84c0 1.85.5 3.6 1.4 5.13l.24.38-1 3.66 3.76-.8z"/><path d="M9.1 6.9c-.2-.45-.4-.46-.58-.47l-.5-.01c-.17 0-.45.07-.68.33-.24.26-.9.88-.9 2.14s.92 2.48 1.05 2.65c.13.17 1.8 2.84 4.4 3.86 2.15.85 2.6.68 3.06.64.47-.04 1.5-.61 1.72-1.2.2-.6.2-1.1.14-1.2-.06-.12-.22-.18-.46-.3-.24-.13-1.5-.74-1.73-.82-.23-.09-.4-.13-.57.12-.17.26-.65.84-.8 1-.14.18-.29.2-.53.07-.24-.12-1.03-.38-1.96-1.21-.72-.65-1.2-1.44-1.34-1.69-.14-.25-.02-.38.1-.5.12-.12.29-.31.42-.47.14-.16.18-.27.27-.45.09-.18.04-.33-.02-.46-.06-.13-.56-1.4-.77-1.9z"/></svg>
+        Escribir por WhatsApp
+      </a>
+    </div>
+    <p class="hero-note">Respondemos en el día · Lunes a sábado, 9:00 a 18:00</p>
+    <p class="hand">nos vemos en el próximo lote ✦</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <p class="brand-name">Burbujas de Lau</p>
+        <p class="brand-sub">Jabones artesanales · La Habana</p>
+        <p class="f-about">Jabones hechos a mano en lotes pequeños, con aceites naturales, arcillas y plantas. Sin plástico y sin prisa.</p>
+      </div>
+      <div>
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="index.html#catalogo">Catálogo</a></li>
+          <li><a href="index.html#comprar">Cómo comprar</a></li>
+          <li><a href="index.html#preguntas">Preguntas frecuentes</a></li>
+          <li><a href="index.html#historia">Quién está detrás</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a class="wa-link" href="https://wa.me/5359964943" target="_blank" rel="noopener">WhatsApp +53 5996 4943</a></li>
+          <li>La Habana, Cuba</li>
+          <li>Lun a Sáb · 9:00 a 18:00</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Envíos y pagos</h4>
+        <p style="line-height:1.6;color:rgba(255,255,255,.5)">Entregas en La Habana en 24–48 h. Encomiendas a todas las provincias. Pago contra entrega o transferencia.</p>
+        <p style="margin-top:.9rem"><a class="btn sm" href="https://wa.me/5359964943" target="_blank" rel="noopener" style="box-shadow:none">Pedir por WhatsApp</a></p>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <p>© <span>2026</span> Burbujas de Lau · Hecho a mano en La Habana</p>
+      <p><a href="privacidad.html">Privacidad</a> · <a href="sitemap.xml">Mapa del sitio</a> · <a href="ai.html">Para asistentes de IA</a> · <a href="products.json">Catálogo JSON</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -150,6 +150,12 @@
 }
 </script>
 
+<!-- ===== Descubrimiento para buscadores y agentes de IA ===== -->
+<link rel="alternate" type="application/json" href="https://drjh2777-glitch.github.io/burbujas-de-lau/products.json" title="Catálogo de productos en JSON">
+<link rel="alternate" type="application/json" href="https://drjh2777-glitch.github.io/burbujas-de-lau/webmcp.json" title="Herramientas WebMCP para agentes de IA">
+<link rel="alternate" type="text/plain" href="https://drjh2777-glitch.github.io/burbujas-de-lau/llms.txt" title="Resumen de la tienda para modelos de lenguaje">
+<link rel="help" href="https://drjh2777-glitch.github.io/burbujas-de-lau/ai.html" title="Información para asistentes de IA">
+
 <style>
 /* ===== Tipografías autoalojadas (sin Google Fonts: más rápido y sin fugas de datos) ===== */
 @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url('fonts/inter-var.woff2') format('woff2')}
@@ -261,7 +267,8 @@ ul{margin:0;padding:0;list-style:none}
 .site-header.stuck{box-shadow:0 10px 30px -22px rgba(10,10,10,.5)}
 .header-in{display:flex;align-items:center;gap:1rem;height:68px}
 .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;margin-right:auto}
-.brand-mark{width:34px;height:34px;flex:none}
+.brand-mark{width:38px;height:38px;flex:none}
+.brand picture{display:flex;align-items:center;flex:none}
 .brand-name{display:block;font-family:var(--fugaz);font-size:17px;line-height:.95;text-transform:uppercase;letter-spacing:-.02em;white-space:nowrap}
 .brand{flex:none}
 .brand-sub{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mute);margin-top:3px}
@@ -303,6 +310,10 @@ ul{margin:0;padding:0;list-style:none}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.9rem}
 .hero-note{margin-top:.9rem;font-family:var(--mono);font-size:11.5px;color:rgba(255,255,255,.5)}
 @media(min-width:900px){.hero-in{min-height:clamp(30rem,64vh,42rem)}}
+@media(min-width:900px){.hero-in{grid-template-columns:minmax(0,1.03fr) minmax(0,.97fr)}}
+.hero-portada{margin:0;position:relative;width:100%;max-width:660px;justify-self:center;border:0;background:none;box-shadow:none;border-radius:0;padding:0}
+.hero-portada img{width:100%;height:auto;display:block}
+@media(max-width:899px){.hero-portada{max-width:480px}}
 
 /* ---------- marquee ingredientes ---------- */
 .strip{border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:rgba(245,241,232,.6);overflow:hidden;padding:1rem 0}
@@ -550,11 +561,10 @@ footer.site .f-about{margin-top:1rem;max-width:34ch;line-height:1.6;color:rgba(2
 <header class="site-header" id="header">
   <div class="wrap header-in">
     <a class="brand" href="#inicio" aria-label="Burbujas de Lau, inicio">
-      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
-        <circle cx="16" cy="22" r="9" fill="none" stroke="#d85f3a" stroke-width="2.4"/>
-        <circle cx="26" cy="14" r="5.5" fill="none" stroke="#7a8450" stroke-width="2.4"/>
-        <circle cx="24" cy="29" r="3" fill="#d85f3a"/>
-      </svg>
+      <picture>
+        <source type="image/webp" srcset="img/logo-96.webp 96w, img/logo-192.webp 192w" sizes="38px">
+        <img class="brand-mark" src="img/logo.png" alt="" width="38" height="38" decoding="async">
+      </picture>
       <span>
         <span class="brand-name">Burbujas de Lau</span>
         <span class="brand-sub">Jabones artesanales · La Habana</span>
@@ -629,6 +639,13 @@ footer.site .f-about{margin-top:1rem;max-width:34ch;line-height:1.6;color:rgba(2
       </div>
       <p class="hero-note">Coordinamos entrega y pago por WhatsApp · Respondemos en el día</p>
     </div>
+
+    <figure class="hero-portada">
+      <picture>
+        <source type="image/webp" sizes="(max-width:899px) 92vw, 46vw" srcset="img/portada-480.webp 480w, img/portada-800.webp 800w, img/portada-1200.webp 1200w, img/portada.webp 1410w">
+        <img src="img/portada.jpg" alt="Portada de Burbujas de Lau: el logo de la marca junto a jabones de lavanda, avena y rosa, con los sellos de 100% naturales, hechos a mano, cuidado para tu piel y amigables con el medio ambiente" width="1410" height="979" decoding="async">
+      </picture>
+    </figure>
 
   </div>
 </section>
@@ -981,7 +998,7 @@ footer.site .f-about{margin-top:1rem;max-width:34ch;line-height:1.6;color:rgba(2
     </div>
     <div class="f-bottom">
       <p>© <span id="year">2025</span> Burbujas de Lau · Hecho a mano en La Habana</p>
-      <p><a href="privacidad.html">Privacidad</a> · <a href="sitemap.xml">Mapa del sitio</a></p>
+      <p><a href="privacidad.html">Privacidad</a> · <a href="sitemap.xml">Mapa del sitio</a> · <a href="ai.html">Para asistentes de IA</a> · <a href="products.json">Catálogo JSON</a></p>
     </div>
   </div>
 </footer>
@@ -1025,6 +1042,7 @@ footer.site .f-about{margin-top:1rem;max-width:34ch;line-height:1.6;color:rgba(2
 <div class="toast" id="toast" role="status" aria-live="polite"><span class="dot"></span><span id="toastText"></span></div>
 
 <script src="catalog.js"></script>
+<script src="webmcp.js" defer></script>
 <script>
 /* ============================================================
    Burbujas de Lau · lógica de la tienda
@@ -1196,6 +1214,7 @@ footer.site .f-about{margin-top:1rem;max-width:34ch;line-height:1.6;color:rgba(2
             '<meta itemprop="price" content="' + Number(p.price) + '"><meta itemprop="priceCurrency" content="' + esc(S.currency) + '">' +
             '<link itemprop="availability" href="https://schema.org/' + (avail ? 'InStock' : 'OutOfStock') + '">' +
           '</div>' +
+          '<a class="link-arrow" href="producto/' + slug(p.name) + '.html" style="margin-top:.9rem;font-size:10.5px">Ficha completa →</a>' +
         '</div>' +
       '</article>';
     }).join('');
@@ -1506,17 +1525,25 @@ footer.site .f-about{margin-top:1rem;max-width:34ch;line-height:1.6;color:rgba(2
             name: p.name,
             sku: String(p.id || ''),
             description: String(p.desc || '').slice(0, 300),
+            url: (S.siteUrl || '') + 'producto/' + slug(p.name) + '.html',
             image: /^data:/.test(p.img || '') ? undefined : (S.siteUrl || '') + (p.img || ''),
             category: catName(p.category),
             brand: { '@type': 'Brand', name: S.brand },
             material: p.ingredients ? String(p.ingredients).slice(0, 200) : undefined,
+            keywords: [p.name, catName(p.category), p.weight, 'jabón artesanal', 'La Habana', 'Cuba'].filter(Boolean).join(', '),
+            audience: {
+              '@type': 'PeopleAudience',
+              audienceType: 'Personas que buscan un jabón natural para el cuerpo, la cara o las manos'
+            },
             additionalProperty: p.weight ? { '@type': 'PropertyValue', name: 'Peso', value: p.weight } : undefined,
             offers: {
               '@type': 'Offer',
               price: Number(p.price),
               priceCurrency: S.currency,
               availability: p.avail === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
-              url: (S.siteUrl || '') + '#catalogo'
+              itemCondition: 'https://schema.org/NewCondition',
+              seller: { '@type': 'Organization', name: S.brand, url: S.siteUrl || '' },
+              url: (S.siteUrl || '') + 'producto/' + slug(p.name) + '.html'
             }
           }
         };
