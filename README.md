@@ -139,4 +139,4 @@ No hay pasarela de pago ni registro: se coordina todo en el chat.
 
 ---
 
-© Burbujas de Lau · Jabones artesanales, La Habana.
+© 2026 Burbujas de Lau · Jabones artesanales, La Habana.
